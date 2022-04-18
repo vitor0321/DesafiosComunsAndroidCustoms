@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_nav"
+    app:startDestination="@id/mainFragment">
+
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="com.example.desafioscomunsandroidcustoms.ui.fragment.MainFragment"
+        android:label="fragment_main"
+        tools:layout="@layout/fragment_main" >
+        <action
+            android:id="@+id/action_mainFragment_to_requestPermissionFragment"
+            app:destination="@id/requestPermissionFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_requestResultFragment"
+            app:destination="@id/requestResultFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_tecladoFragment"
+            app:destination="@id/tecladoFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_vibrarFragment"
+            app:destination="@id/vibrarFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_hasInternetFragment"
+            app:destination="@id/hasInternetFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_darkWebViewFragment"
+            app:destination="@id/darkWebViewFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_checkEditTextFragment"
+            app:destination="@id/checkEditTextFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_checkIfEmulatorFragment"
+            app:destination="@id/checkIfEmulatorFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/requestPermissionFragment"
+        android:name="com.example.desafioscomunsandroidcustoms.ui.fragment.request_permissions.RequestPermissionFragment"
+        android:label="fragment_request_permission"
+        tools:layout="@layout/fragment_request_permission" />
+    <fragment
+        android:id="@+id/resultFragment"
+        android:name="com.example.desafioscomunsandroidcustoms.ui.fragment.get_image.ResultFragment"
+        android:label="fragment_result"
+        tools:layout="@layout/fragment_result" />
+    <fragment
+        android:id="@+id/requestResultFragment"
+        android:name="com.example.desafioscomunsandroidcustoms.ui.fragment.get_image.RequestResultFragment"
+        android:label="fragment_request_result"
+        tools:layout="@layout/fragment_request_result" >
+        <action
+            android:id="@+id/action_requestResultFragment_to_resultFragment"
+            app:destination="@id/resultFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/tecladoFragment"
+        android:name="com.example.desafioscomunsandroidcustoms.ui.fragment.exibir_esconder_teclado.TecladoFragment"
+        android:label="fragment_teclado"
+        tools:layout="@layout/fragment_teclado" />
+    <fragment
+        android:id="@+id/vibrarFragment"
+        android:name="com.example.desafioscomunsandroidcustoms.ui.fragment.vibrar_celular.VibrarFragment"
+        android:label="fragment_vibrar"
+        tools:layout="@layout/fragment_vibrar" />
+    <fragment
+        android:id="@+id/hasInternetFragment"
+        android:name="com.example.desafioscomunsandroidcustoms.ui.fragment.check_internet.HasInternetFragment"
+        android:label="fragment_has_internet"
+        tools:layout="@layout/fragment_has_internet" />
+    <fragment
+        android:id="@+id/darkWebViewFragment"
+        android:name="com.example.desafioscomunsandroidcustoms.ui.fragment.dark_web_view.DarkWebViewFragment"
+        android:label="fragment_dark_web_view"
+        tools:layout="@layout/fragment_dark_web_view" />
+    <fragment
+        android:id="@+id/checkEditTextFragment"
+        android:name="com.example.desafioscomunsandroidcustoms.ui.fragment.check_edit_text.CheckEditTextFragment"
+        android:label="fragment_check_edit_text"
+        tools:layout="@layout/fragment_check_edit_text" />
+    <fragment
+        android:id="@+id/checkIfEmulatorFragment"
+        android:name="com.example.desafioscomunsandroidcustoms.ui.fragment.check_if_emulador.CheckIfEmulatorFragment"
+        android:label="fragment_check_if_emulator"
+        tools:layout="@layout/fragment_check_if_emulator" />
+</navigation>

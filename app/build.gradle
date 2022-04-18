@@ -1,0 +1,81 @@
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+    id 'androidx.navigation.safeargs'
+}
+
+android {
+    compileSdk rootProject.ext.androidCompileSdkVersion
+
+    defaultConfig {
+        applicationId rootProject.ext.applicationId
+        minSdk rootProject.ext.androidMinSdkVersion
+        targetSdk rootProject.ext.androidTargetSdkVersion
+        versionCode rootProject.ext.versionCode
+        versionName rootProject.ext.versionName
+
+        testInstrumentationRunner rootProject.ext.androidJUnitRunner
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+
+        debug {
+            pseudoLocalesEnabled true
+        }
+    }
+    viewBinding {
+        enabled = true
+    }
+    compileOptions {
+        sourceCompatibility rootProject.ext.javaVersion
+        targetCompatibility rootProject.ext.javaVersion
+    }
+    kotlinOptions {
+        jvmTarget = rootProject.ext.javaVersion
+    }
+}
+
+dependencies {
+
+    def presentationTestDependencies = rootProject.ext.presentationTestDependencies
+    def presentationDependencies = rootProject.ext.presentationDependencies
+    def masterTestDependencies = rootProject.ext.masterTestDependencies
+    def masterDependencies = rootProject.ext.masterDependencies
+
+    //Android
+    implementation masterDependencies.androidConstraintLayout
+    implementation masterDependencies.androidLegacySupport
+    implementation masterDependencies.androidAppCompat
+    implementation masterDependencies.androidMaterial
+    implementation masterDependencies.androidCoreKtx
+
+    //Libs
+    implementation "androidx.navigation:navigation-fragment-ktx:$nav_version"
+    implementation "androidx.navigation:navigation-ui-ktx:$nav_version"
+    implementation "androidx.navigation:navigation-dynamic-features-fragment:$nav_version"
+    androidTestImplementation "androidx.navigation:navigation-testing:$nav_version"
+    implementation 'com.github.bumptech.glide:glide:4.13.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.13.0'
+
+    //FORCE DAR WEBVIEW
+    implementation 'androidx.webkit:webkit:1.4.0'
+
+    //DEPURAÇÃO COM TIMBER
+    implementation "com.jakewharton.timber:timber:4.7.1"
+
+    //DELEGAR VIEWBINDING
+    //java 8
+    implementation "androidx.lifecycle:lifecycle-common-java8:2.3.1"
+    //java > 8
+    annotationProcessor("androidx.lifecycle:lifecycle-compiler:2.3.1")
+
+    //Test
+    implementation "androidx.navigation:navigation-compose:2.4.0-alpha06"
+    androidTestImplementation masterTestDependencies.espressoCore
+    androidTestImplementation masterTestDependencies.extJunit
+    testImplementation masterTestDependencies.junit
+}

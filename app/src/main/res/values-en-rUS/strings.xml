@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Desafios Comuns Android Customs</string>
+    <string name="request_permissions">Request Permissions</string>
+    <string name="vitor">Vitor-en</string>
+    <string name="developer_almanac">Develper Almanac</string>
+    <string name="user_permissions">User Permissions</string>
+    <string name="request_permissions_for_demand">Request Permissions for Demand</string>
+    <string name="resultados_de_telas">Get Image</string>
+    <string name="requisitando_resultado_de_tela">Require image from Galery</string>
+</resources>

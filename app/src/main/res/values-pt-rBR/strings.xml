@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Desafios Comuns Android Customs</string>
+    <string name="request_permissions">Solicite Permissões</string>
+    <string name="resultados_de_telas">Pegar fotos</string>
+    <string name="vitor">Vitor-pt</string>
+    <string name="developer_almanac">Almanac Desenvolvido</string>
+    <string name="user_permissions">Permissão do Usuário</string>
+    <string name="request_permissions_for_demand">Pedir permissão por demanda</string>
+    <string name="requisitando_resultado_de_tela">Requisitar imagem da galeria</string>
+    <string name="get_image_from_galery">Pegar a imagem da galeria</string>
+</resources>

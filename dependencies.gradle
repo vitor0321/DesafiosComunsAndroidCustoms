@@ -1,0 +1,68 @@
+ext{
+    applicationId               = "com.example.desafioscomunsandroidcustoms"
+    androidJUnitRunner          = "androidx.test.runner.AndroidJUnitRunner"
+    versionCode                 = 1
+    versionName                 = "1.0.0"
+    javaVersion                 = JavaVersion.VERSION_11
+    buildToolsVersion           = "30.0.3"
+
+    // Android
+    androidMinSdkVersion        = 29
+    androidTargetSdkVersion     = 31
+    androidCompileSdkVersion    = 31
+    androidCoreKtx              = "1.7.0"
+    androidAppCompat            = "1.4.1"
+    androidMaterial             = "1.5.0"
+    androidConstraintLayout     = "1.5.0"
+    androidLegacySupport        = "1.0.0"
+    androidGradle               = "7.0.4"
+    kotlinGradle                = "1.6.10"
+
+    //Libs
+    navVersion                  = "2.3.5"
+
+    //Test
+    junit                       = "4.13.2"
+    extJunit                    = "1.1.3"
+    espressoCore                = "3.4.0"
+
+    modules = [
+    ]
+
+    masterDependencies = [
+            androidCoreKtx             : "androidx.core:core-ktx:$androidCoreKtx",
+            androidAppCompat           : "androidx.appcompat:appcompat:$androidAppCompat",
+            androidMaterial            : "com.google.android.material:material:$androidMaterial",
+            androidConstraintLayout    : "androidx.constraintlayout:constraintlayout:$androidConstraintLayout",
+            androidLegacySupport       : "androidx.legacy:legacy-support-v4:$androidLegacySupport",
+            androidGradle              : "com.android.tools.build:gradle:$androidGradle",
+            kotlinGradle               : "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinGradle"
+    ]
+
+    commonDependencies = [
+    ]
+
+    masterTestDependencies = [
+            junit                      : "junit:junit:$junit",
+            extJunit                   : "androidx.test.ext:junit:$extJunit",
+            espressoCore               : "androidx.test.espresso:espresso-core:$espressoCore",
+    ]
+
+    presentationDependencies = [
+            navigationFragment         : "androidx.navigation:navigation-fragment-ktx:$navVersion",
+            navigationUi               : "androidx.navigation:navigation-ui-ktx:$navVersion",
+//            navigationDynamicFeatures  : "androidx.navigation:navigation-dynamic-features-fragment:$navVersion",
+//            navigationCompose          : "androidx.navigation:navigation-compose:$navVersion"
+    ]
+
+    presentationTestDependencies = [
+//            navTesting                 : "androidx.navigation:navigation-testing:$navVersion"
+    ]
+
+    dataDependencies = [
+    ]
+
+    dataTestDependencies = [
+    ]
+
+}
