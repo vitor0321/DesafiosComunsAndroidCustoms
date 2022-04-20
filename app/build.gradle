@@ -78,6 +78,9 @@ dependencies {
     implementation "io.insert-koin:koin-core:$koin_version"
     implementation "io.insert-koin:koin-android:$koin_version"
 
+    //Biométria
+    implementation "androidx.biometric:biometric:1.2.0-alpha04"
+
     //Test
     implementation "androidx.navigation:navigation-compose:2.4.0-alpha06"
     androidTestImplementation masterTestDependencies.espressoCore

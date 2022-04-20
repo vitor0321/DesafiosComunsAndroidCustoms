@@ -38,6 +38,10 @@ class MainFragment : Fragment(R.layout.fragment_main) {
             checkEditTextButton.setOnClickListener { navTo(R.id.checkEditTextFragment) }
 
             checkEmulatorButton.setOnClickListener { navTo(R.id.checkIfEmulatorFragment) }
+
+            checkBackButton.setOnClickListener { navTo(R.id.backPressedFragment) }
+
+            checkBiometryButton.setOnClickListener { navTo(R.id.biometryFragment) }
         }
     }
 }

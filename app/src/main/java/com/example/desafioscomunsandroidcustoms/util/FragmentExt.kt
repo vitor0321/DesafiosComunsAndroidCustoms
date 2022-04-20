@@ -7,21 +7,18 @@ import android.net.ConnectivityManager
 import android.net.NetworkCapabilities.NET_CAPABILITY_INTERNET
 import android.net.NetworkCapabilities.NET_CAPABILITY_VALIDATED
 import android.os.*
-import android.util.Patterns
 import android.view.View
 import android.view.inputmethod.InputMethodManager
 import android.view.inputmethod.InputMethodManager.SHOW_FORCED
 import android.widget.Toast
 import androidx.annotation.IdRes
+import androidx.biometric.BiometricPrompt
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.navigation.NavDirections
 import androidx.navigation.fragment.findNavController
-import com.example.desafioscomunsandroidcustoms.util.const.NUMBERS
-import com.example.desafioscomunsandroidcustoms.util.const.PASSWORD_REGEX
-import com.example.desafioscomunsandroidcustoms.util.const.SPECIAL_CHARACTERS_REGEX
-import java.util.regex.Matcher
-import java.util.regex.Pattern
+import timber.log.Timber
+import javax.crypto.Cipher
 
 /** VERIFICA SE A PERMISSÃO FOI CONCEDIDA */
 fun Fragment.hasPermission(permission: String): Boolean {
@@ -122,24 +119,43 @@ fun Fragment.hasInternet(): Boolean {
     }
 }
 
-//VERIFICAR SE O EDITTEXT DE EMAIL
-fun Fragment.checkEmail(email: String): Boolean {
-    return when {
-        email.isBlank() -> false
-        !Patterns.EMAIL_ADDRESS.matcher(email).matches() -> false
-        email.length >= 20 -> false
-        else -> true
+//ATIVAR BIOMETRIA API>=23
+/** EXIBE UM LEITOR DE BIOMETRIA: XXXXXXX */
+fun Fragment.promptBiometricChecker(
+    title: String,
+    message: String? = null, // OPCIONAL - SE QUISER EXIBIR UMA MENSAGEM
+    negativeLabel: String,
+    confirmationRequired: Boolean = true,
+    initializedCipher: Cipher? = null, // OPICIONAL - SE VC MESMO(SUA APP) QUISER MANTER O CONTROLE SOBRE OS ACESSOS
+    onAuthenticationSuccess: (BiometricPrompt.AuthenticationResult) -> Unit,
+    onAuthenticationError: (Int, String) -> Unit
+) {
+    val executor = ContextCompat.getMainExecutor(requireContext())
+    val prompt = BiometricPrompt(this, executor, object : BiometricPrompt.AuthenticationCallback() {
+        override fun onAuthenticationSucceeded(result: BiometricPrompt.AuthenticationResult) {
+            Timber.d("Authenticado com sucesso, acesso permitido!")
+            onAuthenticationSuccess(result)
+        }
+
+        override fun onAuthenticationError(errorCode: Int, errorMessage: CharSequence) {
+            Timber.d("Acesso negado! Alguem ta tentando usar teu celular!")
+            onAuthenticationError(errorCode, errorMessage.toString())
+        }
+    })
+
+    val promptInfo = BiometricPrompt.PromptInfo.Builder()
+        .setTitle(title)
+        .apply { if (message != null) setDescription(message) }
+        .setConfirmationRequired(confirmationRequired)
+        .setNegativeButtonText(negativeLabel)
+        .build()
+
+    initializedCipher?.let {
+        val cryptoObject = BiometricPrompt.CryptoObject(initializedCipher)
+        prompt.authenticate(promptInfo, cryptoObject)
+        return
     }
+
+    prompt.authenticate(promptInfo)
 }
 
-fun Fragment.hasSpecialCharacters(password: String) = Pattern.matches(SPECIAL_CHARACTERS_REGEX, password)
-
-fun Fragment.hasNumber(password: String) = Pattern.matches(NUMBERS, password)
-
-object const  {
-    const val SPECIAL_CHARACTERS_REGEX =
-        "(?=.*[\\u0020-\\u002F\\u003A-\\u0040\\u005B-\\u0060\\u007B-\\u007E])"
-    const val PASSWORD_REGEX =
-        "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])($SPECIAL_CHARACTERS_REGEX).{8,}\$"
-    const val NUMBERS = "(?=.*[0-9])"
-}

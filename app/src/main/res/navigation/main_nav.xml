@@ -34,6 +34,12 @@
         <action
             android:id="@+id/action_mainFragment_to_checkIfEmulatorFragment"
             app:destination="@id/checkIfEmulatorFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_backPressedFragment"
+            app:destination="@id/backPressedFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_biometryFragment"
+            app:destination="@id/biometryFragment" />
     </fragment>
     <fragment
         android:id="@+id/requestPermissionFragment"
@@ -84,4 +90,14 @@
         android:name="com.example.desafioscomunsandroidcustoms.presentation.ui.fragment.check_if_emulador.CheckIfEmulatorFragment"
         android:label="fragment_check_if_emulator"
         tools:layout="@layout/fragment_check_if_emulator" />
+    <fragment
+        android:id="@+id/backPressedFragment"
+        android:name="com.example.desafioscomunsandroidcustoms.presentation.ui.fragment.pressionar_botao_voltar.BackPressedFragment"
+        android:label="fragment_back_pressed"
+        tools:layout="@layout/fragment_back_pressed" />
+    <fragment
+        android:id="@+id/biometryFragment"
+        android:name="com.example.desafioscomunsandroidcustoms.presentation.ui.fragment.biometric.BiometryFragment"
+        android:label="fragment_biometry"
+        tools:layout="@layout/fragment_biometry" />
 </navigation>
