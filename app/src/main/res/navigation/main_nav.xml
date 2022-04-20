@@ -46,6 +46,9 @@
         <action
             android:id="@+id/action_mainFragment_to_customDialogFragment"
             app:destination="@id/customDialogFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_pollingApiFragment"
+            app:destination="@id/pollingApiFragment" />
     </fragment>
     <fragment
         android:id="@+id/requestPermissionFragment"
@@ -116,4 +119,9 @@
         android:name="com.example.desafioscomunsandroidcustoms.presentation.ui.fragment.dialog_custumizados.CustomDialogFragment"
         android:label="fragment_custom_dialog"
         tools:layout="@layout/fragment_custom_dialog" />
+    <fragment
+        android:id="@+id/pollingApiFragment"
+        android:name="com.example.desafioscomunsandroidcustoms.presentation.ui.fragment.requisicao_api.PollingApiFragment"
+        android:label="PollingApiFragment"
+        tools:layout="@layout/fragment_polling_api" />
 </navigation>

@@ -20,6 +20,7 @@
         <entry key="app/src/main/res/layout/fragment_fullscreen_dialog.xml" value="0.11854103343465046" />
         <entry key="app/src/main/res/layout/fragment_has_internet.xml" value="0.12537993920972645" />
         <entry key="app/src/main/res/layout/fragment_main.xml" value="0.12537993920972645" />
+        <entry key="app/src/main/res/layout/fragment_polling_api.xml" value="0.11854103343465046" />
         <entry key="app/src/main/res/layout/fragment_request_permission.xml" value="0.12537993920972645" />
         <entry key="app/src/main/res/layout/fragment_request_result.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_result.xml" value="0.1" />

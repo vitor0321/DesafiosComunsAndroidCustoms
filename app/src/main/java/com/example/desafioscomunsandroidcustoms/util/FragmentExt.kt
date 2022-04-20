@@ -23,7 +23,11 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.NavDirections
 import androidx.navigation.fragment.findNavController
 import com.example.desafioscomunsandroidcustoms.presentation.ui.fragment.full_screen.FullscreenAlertDialog
+import com.example.desafioscomunsandroidcustoms.presentation.ui.fragment.requisicao_api.ClearableCoroutineScope
+import com.example.desafioscomunsandroidcustoms.presentation.ui.fragment.requisicao_api.CoroutineContextProvider
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 import timber.log.Timber
 import javax.crypto.Cipher
 
@@ -269,5 +273,62 @@ fun Fragment.createFullCustomAlertDialog(
         dialog.window?.setBackgroundDrawableResource(customBackgroundId)
     }
     return dialog
+}
+
+/** REALIZAR UMA TAREFA EM LOOP (EX: CONSULTAR ALGUM RESULTADO DE UM SERVIDOR) */
+fun Fragment.polling(
+    isOffline: () -> Boolean = { false },
+    onOffline: () -> Unit = {},
+    isCompleted: () -> Boolean = { false },
+    onCompleted: () -> Unit = {},
+    isError: () -> Boolean = { false },
+    onError: () -> Unit = {},
+    isCanceled: () -> Boolean = { false },
+    onCanceled: () -> Unit = {},
+    pollingDelayInMilliSeconds: Long = 5000L
+) {
+    val pollingScope = ClearableCoroutineScope(CoroutineContextProvider().ui)
+    pollingScope.launch {
+        if (isOffline()) {
+            handleStateChange(onOffline, pollingScope)
+            return@launch
+        }
+        when {
+            isCompleted() -> {
+                handleStateChange(onCompleted, pollingScope)
+                return@launch
+            }
+            isCanceled() -> {
+                handleStateChange(onCanceled, pollingScope)
+                return@launch
+            }
+            isError() -> {
+                handleStateChange(onError, pollingScope)
+                return@launch
+            }
+            else -> {
+                toast("polling a cada 5 segundos!")
+                delay(pollingDelayInMilliSeconds)
+                pollingScope.clearScope()
+                polling(
+                    isOffline = isOffline,
+                    onOffline = onOffline,
+                    isCompleted = isCompleted,
+                    onCompleted = onCompleted,
+                    isError = isError,
+                    onError = onError,
+                    isCanceled = isCanceled,
+                    onCanceled = onCanceled
+                )
+            }
+        }
+    }
+}
+private fun handleStateChange(
+    handle: () -> Unit, pollingScope: ClearableCoroutineScope
+) {
+    handle()
+    pollingScope.clearScope()
+    return
 }
 

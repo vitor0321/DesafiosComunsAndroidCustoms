@@ -46,6 +46,8 @@ class MainFragment : Fragment(R.layout.fragment_main) {
             fullscreenButton.setOnClickListener { navTo(R.id.fullscreenDialogFragment) }
 
             alertButton.setOnClickListener { navTo(R.id.customDialogFragment) }
+
+            pollingButton.setOnClickListener { navTo(R.id.pollingApiFragment) }
         }
     }
 }
