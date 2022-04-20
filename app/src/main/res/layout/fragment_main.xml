@@ -289,10 +289,33 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginEnd="16dp"
-            android:backgroundTint="#7A2945"
+            android:backgroundTint="#FF5722"
             android:textColor="@color/white"
             android:gravity="left|center_vertical"
             android:text="Fullscreen"
+            android:textAllCaps="false"
+            tools:ignore="RtlHardcoded" />
+
+        <TextView
+            style="@style/TextAppearance.AppCompat.Small"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="5dp"
+            android:text="Varios tipos de alertas"
+            android:textStyle="bold" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/alert_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:backgroundTint="#282F55"
+            android:textColor="@color/white"
+            android:gravity="left|center_vertical"
+            android:text="Alertas"
             android:textAllCaps="false"
             tools:ignore="RtlHardcoded" />
 

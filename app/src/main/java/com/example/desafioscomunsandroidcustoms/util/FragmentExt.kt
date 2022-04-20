@@ -11,13 +11,19 @@ import android.view.View
 import android.view.inputmethod.InputMethodManager
 import android.view.inputmethod.InputMethodManager.SHOW_FORCED
 import android.widget.Toast
+import androidx.annotation.DrawableRes
 import androidx.annotation.IdRes
+import androidx.annotation.LayoutRes
+import androidx.annotation.StyleRes
+import androidx.appcompat.app.AlertDialog
+import androidx.appcompat.view.ContextThemeWrapper
 import androidx.biometric.BiometricPrompt
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.navigation.NavDirections
 import androidx.navigation.fragment.findNavController
 import com.example.desafioscomunsandroidcustoms.presentation.ui.fragment.full_screen.FullscreenAlertDialog
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import timber.log.Timber
 import javax.crypto.Cipher
 
@@ -178,4 +184,90 @@ fun Fragment.showFullscreenAlertDialog(
     cancelAction = negativeButtonClickListener,
     dismissAction = dismissAction,
 ).also { it.show(parentFragmentManager, it.javaClass.simpleName) }
+
+/** EXIBIR MATERIAL ALERT DIALOG DE ACORDO COM SUAS NECESSIDADES */
+fun Fragment.showDefaultMaterialAlertDialog(
+    title: String? = null,
+    message: String? = null,
+    positiveButtonLabel: String? = null,
+    positiveButtonClickListener: () -> Unit = {},
+    negativeButtonLabel: String? = null,
+    negativeButtonClickListener: () -> Unit = {},
+    cancelable: Boolean = false,
+    cancelListener: () -> Unit = {},
+    dismissListener: () -> Unit = {},
+) {
+    MaterialAlertDialogBuilder(requireContext())
+        .setTitle(title)
+        .setMessage(message)
+        .setPositiveButton(positiveButtonLabel) { dialog, _ -> dialog.dismiss(); positiveButtonClickListener() }
+        .setNegativeButton(negativeButtonLabel) { dialog, _ -> dialog.dismiss(); negativeButtonClickListener() }
+        .setCancelable(cancelable)
+        .setOnCancelListener { cancelListener() }
+        .setOnDismissListener { dismissListener() }
+        .create().also { it.show() }
+}
+
+/** CRIAR ALERTAS SEMI-CUSTOMIZAOS (APENAS COM CONTEUDO ESTÁTICO CUSTOMIZADO) */
+fun Fragment.showDefaultMaterialAlertDialogWithCustomStaticContent(
+    positiveButtonLabel: String? = null,
+    positiveButtonClickListener: () -> Unit = {},
+    negativeButtonLabel: String? = null,
+    negativeButtonClickListener: () -> Unit = {},
+    cancelable: Boolean = false,
+    cancelListener: () -> Unit = {},
+    dismissListener: () -> Unit = {},
+    @LayoutRes customLayoutId: Int,
+    @StyleRes styleId: Int? = null,
+    @DrawableRes customBackgroundId: Int? = null
+) {
+    // if you want to customize the dialog's theme
+    val builder = if (styleId != null) MaterialAlertDialogBuilder(
+        ContextThemeWrapper(
+            requireContext(),
+            styleId
+        )
+    ) else MaterialAlertDialogBuilder(requireContext())
+
+    // if you want to customize the alert dialog's content!
+    builder.setView(customLayoutId)
+
+    val dialog = builder
+        .setPositiveButton(positiveButtonLabel) { dialog, _ -> dialog.dismiss(); positiveButtonClickListener() }
+        .setNegativeButton(negativeButtonLabel) { dialog, _ -> dialog.dismiss(); negativeButtonClickListener() }
+        .setCancelable(cancelable)
+        .setOnCancelListener { cancelListener() }
+        .setOnDismissListener { dismissListener() }
+        .create()
+
+    // if you want to customize the window background like color and border
+    if (customBackgroundId != null) {
+        dialog.window?.setBackgroundDrawableResource(customBackgroundId)
+    }
+    dialog.show()
+}
+
+/** CRIAR ALERTAS TOTALMENTE CUSTOMIZADOS */
+fun Fragment.createFullCustomAlertDialog(
+    customView: View,
+    @StyleRes styleId: Int? = null,
+    @DrawableRes customBackgroundId: Int? = null
+): AlertDialog {
+    // if you want to customize the dialog's theme
+    val builder = if (styleId != null) MaterialAlertDialogBuilder(
+        ContextThemeWrapper(
+            requireContext(),
+            styleId
+        )
+    ) else MaterialAlertDialogBuilder(requireContext())
+
+    builder.setView(customView)
+    val dialog = builder.create()
+
+    // if you want to customize the window background like color and border
+    if (customBackgroundId != null) {
+        dialog.window?.setBackgroundDrawableResource(customBackgroundId)
+    }
+    return dialog
+}
 
