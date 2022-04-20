@@ -1,9 +1,9 @@
-package com.example.desafioscomunsandroidcustoms.ui.activity.bloquear_captura_tela
+package com.example.desafioscomunsandroidcustoms.presentation.ui.activity.bloquear_captura_tela
 
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.example.desafioscomunsandroidcustoms.ui.activity.MainActivity
+import com.example.desafioscomunsandroidcustoms.presentation.ui.activity.MainActivity
 import com.example.desafioscomunsandroidcustoms.R
 import com.example.desafioscomunsandroidcustoms.databinding.ActivityBlockScreenShotsBinding
 import com.example.desafioscomunsandroidcustoms.util.preventScreenshotsAndRecentAppThumbnails

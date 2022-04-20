@@ -1,11 +1,11 @@
-package com.example.desafioscomunsandroidcustoms.ui.fragment
+package com.example.desafioscomunsandroidcustoms.presentation.ui.fragment
 
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
 import com.example.desafioscomunsandroidcustoms.R
-import com.example.desafioscomunsandroidcustoms.ui.activity.bloquear_captura_tela.BlockScreenShotsActivity
+import com.example.desafioscomunsandroidcustoms.presentation.ui.activity.bloquear_captura_tela.BlockScreenShotsActivity
 import com.example.desafioscomunsandroidcustoms.databinding.FragmentMainBinding
 import com.example.desafioscomunsandroidcustoms.util.navTo
 import com.example.desafioscomunsandroidcustoms.util.viewBinding

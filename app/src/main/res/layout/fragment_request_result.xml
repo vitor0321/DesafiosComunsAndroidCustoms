@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.fragment.get_image.RequestResultFragment">
+    tools:context=".presentation.ui.fragment.get_image.RequestResultFragment">
 
     <Button
         android:id="@+id/request_result_button"

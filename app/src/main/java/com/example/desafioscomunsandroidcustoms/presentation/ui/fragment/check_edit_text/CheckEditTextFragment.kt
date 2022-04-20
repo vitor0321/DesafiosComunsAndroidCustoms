@@ -1,4 +1,4 @@
-package com.example.desafioscomunsandroidcustoms.ui.fragment.check_edit_text
+package com.example.desafioscomunsandroidcustoms.presentation.ui.fragment.check_edit_text
 
 import android.os.Bundle
 import android.text.Editable
@@ -6,16 +6,19 @@ import android.text.TextWatcher
 import android.view.View
 import androidx.fragment.app.Fragment
 import com.example.desafioscomunsandroidcustoms.R
+import com.example.desafioscomunsandroidcustoms.data.StorageType
 import com.example.desafioscomunsandroidcustoms.databinding.FragmentCheckEditTextBinding
 import com.example.desafioscomunsandroidcustoms.util.shake
-import com.example.desafioscomunsandroidcustoms.util.toast
 import com.example.desafioscomunsandroidcustoms.util.vibrante
 import com.example.desafioscomunsandroidcustoms.util.viewBinding
+import org.koin.android.ext.android.inject
 import java.util.regex.Pattern
 
 class CheckEditTextFragment : Fragment(R.layout.fragment_check_edit_text) {
 
     private val binding by viewBinding(FragmentCheckEditTextBinding::bind)
+
+    private val sharedPreferences: StorageType by inject()
 
     private var isAtLeast8 = false
     private var hasUppercase: Boolean = false
@@ -27,23 +30,29 @@ class CheckEditTextFragment : Fragment(R.layout.fragment_check_edit_text) {
         super.onViewCreated(view, savedInstanceState)
 
         binding.apply {
+            btnGetPassword.setOnClickListener {
+               val getEmail = etGetEmail.text.toString()
+                getPassword(getEmail)
+            }
             btnRegister.setOnClickListener(View.OnClickListener {
                 val email = etEmail.text.toString()
                 val password = etPassword.text.toString()
 
-                when{
-                    email.isNotEmpty() && password.isNotEmpty() ->{
+                when {
+                    email.isNotEmpty() && password.isNotEmpty() -> {
                         if (isRegistrationClickable) {
-                            toast("REGISTRATION")
+                            btnRegister.setOnClickListener {
+                                savaPassword(email, password)
+                            }
                         }
                     }
                     email.isEmpty() -> {
-                        etEmail.error
+                        etEmail.error = "Check email"
                         textInputEmail.shake()
                         vibrante(500L)
                     }
                     password.isEmpty() -> {
-                        etPassword.error
+                        etPassword.error = "Check Password"
                         textInputPassword.shake()
                         vibrante(500L)
                     }
@@ -67,7 +76,6 @@ class CheckEditTextFragment : Fragment(R.layout.fragment_check_edit_text) {
                 override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
                     registrationDataCheck()
                 }
-
                 override fun afterTextChanged(s: Editable) {}
             })
         }
@@ -78,8 +86,8 @@ class CheckEditTextFragment : Fragment(R.layout.fragment_check_edit_text) {
             val password: String = etPassword.text.toString()
             val email: String = etEmail.text.toString()
 
-            when{
-                password.length >= 8 ->{
+            when {
+                password.length >= 8 -> {
                     isAtLeast8 = true
                     frameOne.setCardBackgroundColor(resources.getColor(R.color.green))
                 }
@@ -87,6 +95,8 @@ class CheckEditTextFragment : Fragment(R.layout.fragment_check_edit_text) {
                     isAtLeast8 = false
                     frameOne.setCardBackgroundColor(resources.getColor(R.color.red))
                 }
+            }
+            when {
                 Pattern.matches("(.*[A-Z].*)", password) -> {
                     hasUppercase = true
                     frameTwo.setCardBackgroundColor(resources.getColor(R.color.green))
@@ -95,6 +105,8 @@ class CheckEditTextFragment : Fragment(R.layout.fragment_check_edit_text) {
                     hasUppercase = true
                     frameTwo.setCardBackgroundColor(resources.getColor(R.color.red))
                 }
+            }
+            when {
                 Pattern.matches("(.*[0-9].*)", password) -> {
                     hasNumber = true
                     frameThree.setCardBackgroundColor(resources.getColor(R.color.green))
@@ -103,6 +115,8 @@ class CheckEditTextFragment : Fragment(R.layout.fragment_check_edit_text) {
                     hasNumber = false
                     frameThree.setCardBackgroundColor(resources.getColor(R.color.red))
                 }
+            }
+            when {
                 Pattern.matches("^(?=.*[_.()@#$%&/?*+-]).*$", password) -> {
                     hasSymbol = true
                     frameFour.setCardBackgroundColor(resources.getColor(R.color.green))
@@ -123,10 +137,25 @@ class CheckEditTextFragment : Fragment(R.layout.fragment_check_edit_text) {
                     isRegistrationClickable = true
                     btnRegister.setBackgroundColor(resources.getColor(R.color.green))
                 }
-                else ->{
+                else -> {
                     isRegistrationClickable = false
                     btnRegister.setBackgroundColor(resources.getColor(R.color.gray))
                 }
+            }
+        }
+    }
+
+    private fun savaPassword(email: String, password: String) {
+        sharedPreferences.putString(email, password)
+    }
+
+    private fun getPassword(email: String) {
+        binding.apply {
+            val password = sharedPreferences.getString(email)
+            password?.let {
+                tvPassword.text = "Password = $it"
+            } ?: run {
+                tvPassword.text = "Não tem password registrada"
             }
         }
     }

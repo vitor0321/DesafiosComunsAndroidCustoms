@@ -1,4 +1,4 @@
-package com.example.desafioscomunsandroidcustoms.ui.fragment.check_internet
+package com.example.desafioscomunsandroidcustoms.presentation.ui.fragment.check_internet
 
 import android.os.Bundle
 import android.view.View

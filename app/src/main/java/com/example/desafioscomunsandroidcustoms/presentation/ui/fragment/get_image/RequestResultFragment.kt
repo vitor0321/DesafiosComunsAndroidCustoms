@@ -1,4 +1,4 @@
-package com.example.desafioscomunsandroidcustoms.ui.fragment.get_image
+package com.example.desafioscomunsandroidcustoms.presentation.ui.fragment.get_image
 
 import android.Manifest
 import android.os.Bundle
@@ -11,7 +11,7 @@ import com.example.desafioscomunsandroidcustoms.R
 import com.example.desafioscomunsandroidcustoms.databinding.FragmentRequestResultBinding
 import com.example.desafioscomunsandroidcustoms.util.navTo
 import com.example.desafioscomunsandroidcustoms.util.shouldRequestPermission
-import com.example.desafioscomunsandroidcustoms.ui.fragment.get_image.ResultFragment.Companion.KEY_SELECTED_IMAGE_URI
+import com.example.desafioscomunsandroidcustoms.presentation.ui.fragment.get_image.ResultFragment.Companion.KEY_SELECTED_IMAGE_URI
 import com.example.desafioscomunsandroidcustoms.util.toast
 import com.example.desafioscomunsandroidcustoms.util.viewBinding
 

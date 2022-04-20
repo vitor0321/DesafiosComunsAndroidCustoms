@@ -1,4 +1,4 @@
-package com.example.desafioscomunsandroidcustoms.ui.fragment.dark_web_view
+package com.example.desafioscomunsandroidcustoms.presentation.ui.fragment.dark_web_view
 
 import android.content.res.Configuration.UI_MODE_NIGHT_MASK
 import android.content.res.Configuration.UI_MODE_NIGHT_YES

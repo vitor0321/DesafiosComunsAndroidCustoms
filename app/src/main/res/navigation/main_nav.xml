@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/mainFragment"
-        android:name="com.example.desafioscomunsandroidcustoms.ui.fragment.MainFragment"
+        android:name="com.example.desafioscomunsandroidcustoms.presentation.ui.fragment.MainFragment"
         android:label="fragment_main"
         tools:layout="@layout/fragment_main" >
         <action
@@ -37,17 +37,17 @@
     </fragment>
     <fragment
         android:id="@+id/requestPermissionFragment"
-        android:name="com.example.desafioscomunsandroidcustoms.ui.fragment.request_permissions.RequestPermissionFragment"
+        android:name="com.example.desafioscomunsandroidcustoms.presentation.ui.fragment.request_permissions.RequestPermissionFragment"
         android:label="fragment_request_permission"
         tools:layout="@layout/fragment_request_permission" />
     <fragment
         android:id="@+id/resultFragment"
-        android:name="com.example.desafioscomunsandroidcustoms.ui.fragment.get_image.ResultFragment"
+        android:name="com.example.desafioscomunsandroidcustoms.presentation.ui.fragment.get_image.ResultFragment"
         android:label="fragment_result"
         tools:layout="@layout/fragment_result" />
     <fragment
         android:id="@+id/requestResultFragment"
-        android:name="com.example.desafioscomunsandroidcustoms.ui.fragment.get_image.RequestResultFragment"
+        android:name="com.example.desafioscomunsandroidcustoms.presentation.ui.fragment.get_image.RequestResultFragment"
         android:label="fragment_request_result"
         tools:layout="@layout/fragment_request_result" >
         <action
@@ -56,32 +56,32 @@
     </fragment>
     <fragment
         android:id="@+id/tecladoFragment"
-        android:name="com.example.desafioscomunsandroidcustoms.ui.fragment.exibir_esconder_teclado.TecladoFragment"
+        android:name="com.example.desafioscomunsandroidcustoms.presentation.ui.fragment.exibir_esconder_teclado.TecladoFragment"
         android:label="fragment_teclado"
         tools:layout="@layout/fragment_teclado" />
     <fragment
         android:id="@+id/vibrarFragment"
-        android:name="com.example.desafioscomunsandroidcustoms.ui.fragment.vibrar_celular.VibrarFragment"
+        android:name="com.example.desafioscomunsandroidcustoms.presentation.ui.fragment.vibrar_celular.VibrarFragment"
         android:label="fragment_vibrar"
         tools:layout="@layout/fragment_vibrar" />
     <fragment
         android:id="@+id/hasInternetFragment"
-        android:name="com.example.desafioscomunsandroidcustoms.ui.fragment.check_internet.HasInternetFragment"
+        android:name="com.example.desafioscomunsandroidcustoms.presentation.ui.fragment.check_internet.HasInternetFragment"
         android:label="fragment_has_internet"
         tools:layout="@layout/fragment_has_internet" />
     <fragment
         android:id="@+id/darkWebViewFragment"
-        android:name="com.example.desafioscomunsandroidcustoms.ui.fragment.dark_web_view.DarkWebViewFragment"
+        android:name="com.example.desafioscomunsandroidcustoms.presentation.ui.fragment.dark_web_view.DarkWebViewFragment"
         android:label="fragment_dark_web_view"
         tools:layout="@layout/fragment_dark_web_view" />
     <fragment
         android:id="@+id/checkEditTextFragment"
-        android:name="com.example.desafioscomunsandroidcustoms.ui.fragment.check_edit_text.CheckEditTextFragment"
+        android:name="com.example.desafioscomunsandroidcustoms.presentation.ui.fragment.check_edit_text.CheckEditTextFragment"
         android:label="fragment_check_edit_text"
         tools:layout="@layout/fragment_check_edit_text" />
     <fragment
         android:id="@+id/checkIfEmulatorFragment"
-        android:name="com.example.desafioscomunsandroidcustoms.ui.fragment.check_if_emulador.CheckIfEmulatorFragment"
+        android:name="com.example.desafioscomunsandroidcustoms.presentation.ui.fragment.check_if_emulador.CheckIfEmulatorFragment"
         android:label="fragment_check_if_emulator"
         tools:layout="@layout/fragment_check_if_emulator" />
 </navigation>

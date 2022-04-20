@@ -1,4 +1,4 @@
-package com.example.desafioscomunsandroidcustoms.ui.fragment.vibrar_celular
+package com.example.desafioscomunsandroidcustoms.presentation.ui.fragment.vibrar_celular
 
 import android.os.Bundle
 import android.view.View

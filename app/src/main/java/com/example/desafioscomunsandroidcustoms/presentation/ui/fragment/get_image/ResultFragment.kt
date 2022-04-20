@@ -1,4 +1,4 @@
-package com.example.desafioscomunsandroidcustoms.ui.fragment.get_image
+package com.example.desafioscomunsandroidcustoms.presentation.ui.fragment.get_image
 
 import android.os.Bundle
 import android.view.View
@@ -8,8 +8,8 @@ import com.bumptech.glide.Glide
 import com.example.desafioscomunsandroidcustoms.R
 import com.example.desafioscomunsandroidcustoms.databinding.FragmentResultBinding
 import com.example.desafioscomunsandroidcustoms.util.navBack
-import com.example.desafioscomunsandroidcustoms.ui.fragment.get_image.RequestResultFragment.Companion.KEY_CHOOSER_BACK_BUTTON
-import com.example.desafioscomunsandroidcustoms.ui.fragment.get_image.RequestResultFragment.Companion.KEY_CHOOSER_REQUEST
+import com.example.desafioscomunsandroidcustoms.presentation.ui.fragment.get_image.RequestResultFragment.Companion.KEY_CHOOSER_BACK_BUTTON
+import com.example.desafioscomunsandroidcustoms.presentation.ui.fragment.get_image.RequestResultFragment.Companion.KEY_CHOOSER_REQUEST
 import com.example.desafioscomunsandroidcustoms.util.viewBinding
 
 class ResultFragment : Fragment(R.layout.fragment_result) {

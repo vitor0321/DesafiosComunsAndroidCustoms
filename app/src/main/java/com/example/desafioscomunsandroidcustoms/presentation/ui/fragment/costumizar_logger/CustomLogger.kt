@@ -1,4 +1,4 @@
-package com.example.desafioscomunsandroidcustoms.ui.fragment.costumizar_logger
+package com.example.desafioscomunsandroidcustoms.presentation.ui.fragment.costumizar_logger
 
 import android.util.Log
 import timber.log.Timber

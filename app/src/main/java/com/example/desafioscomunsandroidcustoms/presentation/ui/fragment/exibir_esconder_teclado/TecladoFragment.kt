@@ -1,4 +1,4 @@
-package com.example.desafioscomunsandroidcustoms.ui.fragment.exibir_esconder_teclado
+package com.example.desafioscomunsandroidcustoms.presentation.ui.fragment.exibir_esconder_teclado
 
 import android.os.Bundle
 import android.view.View

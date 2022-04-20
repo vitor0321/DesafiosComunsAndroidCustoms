@@ -1,4 +1,4 @@
-package com.example.desafioscomunsandroidcustoms.ui.fragment.request_permissions
+package com.example.desafioscomunsandroidcustoms.presentation.ui.fragment.request_permissions
 
 import android.Manifest
 import android.os.Bundle

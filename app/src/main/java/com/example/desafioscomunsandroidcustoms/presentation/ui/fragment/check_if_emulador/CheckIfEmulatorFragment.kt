@@ -1,4 +1,4 @@
-package com.example.desafioscomunsandroidcustoms.ui.fragment.check_if_emulador
+package com.example.desafioscomunsandroidcustoms.presentation.ui.fragment.check_if_emulador
 
 import android.os.Bundle
 import android.view.View
