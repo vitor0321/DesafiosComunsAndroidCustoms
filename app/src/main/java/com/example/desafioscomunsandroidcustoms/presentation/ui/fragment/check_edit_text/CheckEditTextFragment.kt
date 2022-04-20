@@ -43,6 +43,8 @@ class CheckEditTextFragment : Fragment(R.layout.fragment_check_edit_text) {
                         if (isRegistrationClickable) {
                             btnRegister.setOnClickListener {
                                 savaPassword(email, password)
+                                etEmail.text?.clear()
+                                etPassword.text?.clear()
                             }
                         }
                     }
