@@ -40,6 +40,9 @@
         <action
             android:id="@+id/action_mainFragment_to_biometryFragment"
             app:destination="@id/biometryFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_fullscreenDialogFragment"
+            app:destination="@id/fullscreenDialogFragment" />
     </fragment>
     <fragment
         android:id="@+id/requestPermissionFragment"
@@ -100,4 +103,9 @@
         android:name="com.example.desafioscomunsandroidcustoms.presentation.ui.fragment.biometric.BiometryFragment"
         android:label="fragment_biometry"
         tools:layout="@layout/fragment_biometry" />
+    <fragment
+        android:id="@+id/fullscreenDialogFragment"
+        android:name="com.example.desafioscomunsandroidcustoms.presentation.ui.fragment.full_screen.FullscreenDialogFragment"
+        android:label="fragment_fullscreen_dialog"
+        tools:layout="@layout/fragment_fullscreen_dialog" />
 </navigation>

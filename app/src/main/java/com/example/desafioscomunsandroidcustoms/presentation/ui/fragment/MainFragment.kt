@@ -42,6 +42,8 @@ class MainFragment : Fragment(R.layout.fragment_main) {
             checkBackButton.setOnClickListener { navTo(R.id.backPressedFragment) }
 
             checkBiometryButton.setOnClickListener { navTo(R.id.biometryFragment) }
+
+            fullscreenButton.setOnClickListener { navTo(R.id.fullscreenDialogFragment) }
         }
     }
 }

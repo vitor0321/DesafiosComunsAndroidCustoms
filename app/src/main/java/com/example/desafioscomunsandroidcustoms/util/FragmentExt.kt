@@ -17,6 +17,7 @@ import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.navigation.NavDirections
 import androidx.navigation.fragment.findNavController
+import com.example.desafioscomunsandroidcustoms.presentation.ui.fragment.full_screen.FullscreenAlertDialog
 import timber.log.Timber
 import javax.crypto.Cipher
 
@@ -158,4 +159,23 @@ fun Fragment.promptBiometricChecker(
 
     prompt.authenticate(promptInfo)
 }
+
+/** EXIBIR UM ALERTA DE MENSAGENS FULLSCREEN PERSONALIZADO */
+fun Fragment.showFullscreenAlertDialog(
+    title: String,
+    message: String,
+    positiveButtonLabel: String = getString(android.R.string.ok),
+    positiveButtonClickListener: () -> Unit = {},
+    cancelButtonLabel: String? = null,
+    negativeButtonClickListener: () -> Unit = {},
+    dismissAction: () -> Unit = {},
+) = FullscreenAlertDialog(
+    title = title,
+    message = message,
+    positiveLabel = positiveButtonLabel,
+    positiveAction = positiveButtonClickListener,
+    cancelLabel = cancelButtonLabel,
+    cancelAction = negativeButtonClickListener,
+    dismissAction = dismissAction,
+).also { it.show(parentFragmentManager, it.javaClass.simpleName) }
 

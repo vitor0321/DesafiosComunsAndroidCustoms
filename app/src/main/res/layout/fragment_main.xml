@@ -273,5 +273,28 @@
             android:textAllCaps="false"
             tools:ignore="RtlHardcoded" />
 
+        <TextView
+            style="@style/TextAppearance.AppCompat.Small"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="5dp"
+            android:text="Abrir um Dialog de fullscreen"
+            android:textStyle="bold" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/fullscreen_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:backgroundTint="#7A2945"
+            android:textColor="@color/white"
+            android:gravity="left|center_vertical"
+            android:text="Fullscreen"
+            android:textAllCaps="false"
+            tools:ignore="RtlHardcoded" />
+
     </LinearLayout>
 </ScrollView>
