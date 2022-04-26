@@ -10,4 +10,6 @@
     <color name="red">#F11403</color>
     <color name="gray">#A3A1A1</color>
     <color name="green">#26DF2D</color>
+    <color name="splash_background_color">#00BCD4</color>
+
 </resources>

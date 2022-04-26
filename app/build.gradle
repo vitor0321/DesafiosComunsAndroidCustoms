@@ -81,6 +81,9 @@ dependencies {
     //Biométria
     implementation "androidx.biometric:biometric:1.2.0-alpha04"
 
+    //Splashscreen lib android 12
+    implementation "androidx.core:core-splashscreen:1.0.0-beta02"
+
     //Test
     implementation "androidx.navigation:navigation-compose:2.4.0-alpha06"
     androidTestImplementation masterTestDependencies.espressoCore

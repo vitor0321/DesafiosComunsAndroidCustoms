@@ -17,4 +17,10 @@
     <!-- FORCE DARK WEB VIEW: SE JÁ TIVER USANDO VERSÃO 29 PODE HABILITAR ESSA PROPERTY    -->
     <!--        <item name="android:forceDarkAllowed">true</item>-->
     </style>
+
+    <style name="SplashScreen" parent="Theme.SplashScreen">
+        <item name="windowSplashScreenBackground">@color/black</item>
+        <item name="windowSplashScreenAnimatedIcon">@drawable/splash_logo</item>
+        <item name="postSplashScreenTheme">@style/Theme.DesafiosComunsAndroidCustoms</item>
+    </style>
 </resources>

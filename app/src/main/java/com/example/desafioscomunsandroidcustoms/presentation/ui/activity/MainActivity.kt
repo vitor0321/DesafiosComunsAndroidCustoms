@@ -1,9 +1,11 @@
 package com.example.desafioscomunsandroidcustoms.presentation.ui.activity
 
 import android.os.Bundle
+import android.view.View
+import android.view.ViewTreeObserver
 import androidx.appcompat.app.AppCompatActivity
-import androidx.navigation.NavController
-import androidx.navigation.fragment.NavHostFragment
+import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupWithNavController
 import com.example.desafioscomunsandroidcustoms.R
@@ -14,23 +16,29 @@ class MainActivity : AppCompatActivity() {
 
     private val binding by viewBinding(ActivityMainBinding::inflate)
 
-    private lateinit var navController: NavController
+    private val navController by lazy {
+        supportFragmentManager.findFragmentById(R.id.nav_host_container)!!.findNavController()
+    }
     private lateinit var appBarConfiguration: AppBarConfiguration
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        installSplashScreen()
         setContentView(binding.root)
+        
+        setNavigation()
+        setupToolbar()
+        setupBottomNavigation()
+        setSplashScreen()
+    }
 
-        val navHostFragment = supportFragmentManager
-            .findFragmentById(R.id.nav_host_container) as NavHostFragment
-        navController = navHostFragment.navController
+    private fun setNavigation() {
         navController.graph.setStartDestination(R.id.mainFragment)
-        supportActionBar?.hide()
-        appBarConfiguration = AppBarConfiguration(
-            setOf(R.id.mainFragment)
-        )
+        appBarConfiguration = AppBarConfiguration(setOf(R.id.mainFragment))
+    }
 
+    private fun setupToolbar(){
         binding.apply {
             toolbarApp.setupWithNavController(navController, appBarConfiguration)
             navController.addOnDestinationChangedListener { _, destination, _ ->
@@ -38,6 +46,23 @@ class MainActivity : AppCompatActivity() {
                     .topLevelDestinations.contains(destination.id)
                 if (!isTopLeveDestination) {
                     toolbarApp.setNavigationIcon(R.drawable.ic_back)
+                }
+            }
+        }
+    }
+
+    private fun setupBottomNavigation() =
+        binding.bottomNavigation.apply { setupWithNavController(navController) }
+
+    private fun setSplashScreen() {
+        val content: View = findViewById(android.R.id.content)
+        content.viewTreeObserver.addOnDrawListener {
+            object : ViewTreeObserver.OnPreDrawListener {
+                val delay = 500L //Maximo possivel pela api 1s android 12
+                override fun onPreDraw(): Boolean {
+                    Thread.sleep(delay)
+                    content.viewTreeObserver.removeOnPreDrawListener(this)
+                    return true
                 }
             }
         }

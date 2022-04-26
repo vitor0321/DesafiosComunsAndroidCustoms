@@ -4,7 +4,10 @@ import android.app.Application
 import androidx.viewbinding.BuildConfig
 import com.example.desafioscomunsandroidcustoms.presentation.di.sharedPreferencesModule
 import com.example.desafioscomunsandroidcustoms.presentation.di.useCaseModule
+import com.example.desafioscomunsandroidcustoms.presentation.ui.defaul_exception.ClearableCoroutineScope
 import com.example.desafioscomunsandroidcustoms.presentation.ui.fragment.costumizar_logger.CustomLogger
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
 import org.koin.core.context.GlobalContext.startKoin
@@ -16,6 +19,7 @@ class MainApplication : Application() {
     override fun onCreate() {
         super.onCreate()
         setupLogging()
+        setupDefaultExceptionHandler()
         modulesKoin()
     }
 
@@ -25,6 +29,19 @@ class MainApplication : Application() {
         } else {
             // Logs em produção usando o crashlytics ou outro
             Timber.plant(CustomLogger())
+        }
+    }
+
+    private fun setupDefaultExceptionHandler() {
+        //pega o default Uncaught Exception handler para repassar os erros
+        val existingHandler = Thread.getDefaultUncaughtExceptionHandler()
+        //intercepta os erros, faz o que for preciso e so depois disso lança os erros
+        Thread.setDefaultUncaughtExceptionHandler { thread, exception ->
+            ClearableCoroutineScope(Dispatchers.Default).launch {
+                Timber.v("clearing cookies")
+                //fazer tudo que for pedido pela auditoria da empresa
+            }
+            existingHandler?.uncaughtException(thread, exception)
         }
     }
 

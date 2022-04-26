@@ -49,6 +49,9 @@
         <action
             android:id="@+id/action_mainFragment_to_pollingApiFragment"
             app:destination="@id/pollingApiFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_bottomSheetDialogFragment"
+            app:destination="@id/bottomSheetDialogFragment" />
     </fragment>
     <fragment
         android:id="@+id/requestPermissionFragment"
@@ -124,4 +127,9 @@
         android:name="com.example.desafioscomunsandroidcustoms.presentation.ui.fragment.requisicao_api.PollingApiFragment"
         android:label="PollingApiFragment"
         tools:layout="@layout/fragment_polling_api" />
+    <fragment
+        android:id="@+id/bottomSheetDialogFragment"
+        android:name="com.example.desafioscomunsandroidcustoms.presentation.ui.fragment.bottom_sheet.BottomSheetDialogFragment"
+        android:label="fragment_bottom_sheet_dialog"
+        tools:layout="@layout/fragment_bottom_sheet_dialog" />
 </navigation>

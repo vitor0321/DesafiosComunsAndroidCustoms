@@ -48,6 +48,8 @@ class MainFragment : Fragment(R.layout.fragment_main) {
             alertButton.setOnClickListener { navTo(R.id.customDialogFragment) }
 
             pollingButton.setOnClickListener { navTo(R.id.pollingApiFragment) }
+
+            bottomSheetButton.setOnClickListener { navTo(R.id.bottomSheetDialogFragment) }
         }
     }
 }

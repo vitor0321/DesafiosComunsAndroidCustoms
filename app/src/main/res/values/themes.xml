@@ -11,10 +11,25 @@
         <item name="colorOnSecondary">@color/black</item>
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
-        <!-- Customize your theme here. -->
+
+        <!-- Toolbar. -->
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+
     </style>
 
     <style name="Theme.DesafiosComunsAndroidCustoms.Fullscreen">
         <item name="android:windowFullscreen">true</item>
     </style>
+
+    <!-- +=======================================================+ -->
+    <!-- | Video Splash Screen: https://youtu.be/cMXE8PN-qIc     | -->
+    <!-- +=======================================================+ -->
+    <style name="SplashScreen" parent="Theme.SplashScreen">
+        <item name="windowSplashScreenBackground">@color/splash_background_color</item>
+        <item name="windowSplashScreenAnimatedIcon">@drawable/splash_logo</item>
+        <item name="postSplashScreenTheme">@style/Theme.DesafiosComunsAndroidCustoms</item>
+    </style>
+
+
 </resources>

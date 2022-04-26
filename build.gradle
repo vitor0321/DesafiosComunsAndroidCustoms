@@ -10,7 +10,7 @@ buildscript {
     dependencies {
         def masterDependencies = rootProject.ext.masterDependencies
         classpath masterDependencies.androidGradle
-        classpath masterDependencies.kotlinGradle
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.6.21"
 
         classpath "androidx.navigation:navigation-safe-args-gradle-plugin:$nav_version"
 
