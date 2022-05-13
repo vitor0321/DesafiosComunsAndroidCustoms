@@ -5,7 +5,7 @@ import android.view.View
 import androidx.fragment.app.Fragment
 import com.example.desafioscomunsandroidcustoms.R
 import com.example.desafioscomunsandroidcustoms.databinding.FragmentVibrarBinding
-import com.example.desafioscomunsandroidcustoms.util.vibrante
+import com.example.desafioscomunsandroidcustoms.util.vibrate
 import com.example.desafioscomunsandroidcustoms.util.viewBinding
 
 class VibrarFragment : Fragment(R.layout.fragment_vibrar) {
@@ -17,7 +17,7 @@ class VibrarFragment : Fragment(R.layout.fragment_vibrar) {
 
         binding.apply {
             vibrateButton.setOnClickListener {
-                this@VibrarFragment.vibrante(2000)
+                this@VibrarFragment.vibrate(2000L)
             }
         }
     }

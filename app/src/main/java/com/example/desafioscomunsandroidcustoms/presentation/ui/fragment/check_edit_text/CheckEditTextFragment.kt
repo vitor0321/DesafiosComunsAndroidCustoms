@@ -9,7 +9,7 @@ import com.example.desafioscomunsandroidcustoms.R
 import com.example.desafioscomunsandroidcustoms.data.StorageType
 import com.example.desafioscomunsandroidcustoms.databinding.FragmentCheckEditTextBinding
 import com.example.desafioscomunsandroidcustoms.util.shake
-import com.example.desafioscomunsandroidcustoms.util.vibrante
+import com.example.desafioscomunsandroidcustoms.util.vibrate
 import com.example.desafioscomunsandroidcustoms.util.viewBinding
 import org.koin.android.ext.android.inject
 import java.util.regex.Pattern
@@ -51,12 +51,12 @@ class CheckEditTextFragment : Fragment(R.layout.fragment_check_edit_text) {
                     email.isEmpty() -> {
                         etEmail.error = "Check email"
                         textInputEmail.shake()
-                        vibrante(500L)
+                        vibrate(500L)
                     }
                     password.isEmpty() -> {
                         etPassword.error = "Check Password"
                         textInputPassword.shake()
-                        vibrante(500L)
+                        vibrate(500L)
                     }
                 }
             })

@@ -6,6 +6,7 @@ import com.example.desafioscomunsandroidcustoms.presentation.di.sharedPreference
 import com.example.desafioscomunsandroidcustoms.presentation.di.useCaseModule
 import com.example.desafioscomunsandroidcustoms.presentation.ui.defaul_exception.ClearableCoroutineScope
 import com.example.desafioscomunsandroidcustoms.presentation.ui.fragment.costumizar_logger.CustomLogger
+import com.example.desafioscomunsandroidcustoms.util.migration.MigrationSharedPreferences
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import org.koin.android.ext.koin.androidContext
@@ -21,6 +22,9 @@ class MainApplication : Application() {
         setupLogging()
         setupDefaultExceptionHandler()
         modulesKoin()
+
+        //migrarar o SharedPreference de um legado para um novo APP
+        MigrationSharedPreferences(this).migrateOnlyOne()
     }
 
     private fun setupLogging() {

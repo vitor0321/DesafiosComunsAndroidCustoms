@@ -1,43 +1,90 @@
 package com.example.desafioscomunsandroidcustoms.util
 
-import android.annotation.SuppressLint
+import android.animation.ArgbEvaluator
+import android.animation.ObjectAnimator
+import android.animation.ValueAnimator
+import android.app.Activity
 import android.content.Context
+import android.content.Intent
 import android.content.pm.PackageManager
+import android.graphics.drawable.Drawable
 import android.net.ConnectivityManager
 import android.net.NetworkCapabilities.NET_CAPABILITY_INTERNET
 import android.net.NetworkCapabilities.NET_CAPABILITY_VALIDATED
-import android.os.*
+import android.net.Uri
+import android.os.Build
+import android.os.Bundle
+import android.os.VibrationEffect
+import android.os.Vibrator
+import android.os.VibratorManager
+import android.provider.Settings
 import android.view.View
+import android.view.WindowManager
 import android.view.inputmethod.InputMethodManager
 import android.view.inputmethod.InputMethodManager.SHOW_FORCED
+import android.widget.TextView
 import android.widget.Toast
+import androidx.annotation.AttrRes
+import androidx.annotation.ColorRes
 import androidx.annotation.DrawableRes
 import androidx.annotation.IdRes
 import androidx.annotation.LayoutRes
+import androidx.annotation.StringRes
 import androidx.annotation.StyleRes
 import androidx.appcompat.app.AlertDialog
+import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.view.ContextThemeWrapper
 import androidx.biometric.BiometricPrompt
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.navigation.NavDirections
 import androidx.navigation.fragment.findNavController
+import com.example.desafioscomunsandroidcustoms.BuildConfig
 import com.example.desafioscomunsandroidcustoms.presentation.ui.fragment.full_screen.FullscreenAlertDialog
 import com.example.desafioscomunsandroidcustoms.presentation.ui.fragment.requisicao_api.ClearableCoroutineScope
 import com.example.desafioscomunsandroidcustoms.presentation.ui.fragment.requisicao_api.CoroutineContextProvider
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import com.google.android.material.snackbar.Snackbar
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import timber.log.Timber
 import javax.crypto.Cipher
 
-/** VERIFICA SE A PERMISSÃO FOI CONCEDIDA */
+/** NAVEGA PARA O DESTINO INDICADO ATRAVES DO ID DO NAGIVATION GRAPH */
+fun Fragment.navTo(@IdRes dest: Int) = findNavController().navigate(dest)
+fun Fragment.navTo(directions: NavDirections) = findNavController().navigate(directions)
+fun Fragment.navTo(@IdRes dest: Int, args: Bundle) = findNavController().navigate(dest, args)
+fun Fragment.navBack() = findNavController().navigateUp()
+
+/** EXIBE UMA MENSAGEM SIMPLES TEMPORARIZADA NA TELA DO CELULAR */
+fun Fragment.toast(msg: String) = Toast.makeText(requireContext(), msg, Toast.LENGTH_SHORT).show()
+
+/** EXIBE UMA MENSAGEM SIMPLES TEMPORARIZADA POREM RETANGULAR. TAMBÉM PODE DAR A OPCÃO DE ADICIONAR ACÕES */
+fun Fragment.snake(view: View, msg: String) = Snackbar.make(view, msg, Snackbar.LENGTH_SHORT).show()
+
+/** DISPARA UMA ACTIVITY PARTINDO DE UM FRAGMENT */
+fun Fragment.startActivity(clazz: Class<*>, name: String = "", args: Bundle = Bundle()) {
+    val intent = Intent(requireContext(), clazz).apply {
+        if (!(name.isNotEmpty() && args.isEmpty)) {
+            putExtra(name, args)
+        }
+    }
+    requireActivity().startActivity(intent)
+}
+
+fun Fragment.showYoutubeVideo(videoId: String) {
+    val openURL = Intent(Intent.ACTION_VIEW)
+    openURL.data = Uri.parse("https://youtu.be/$videoId")
+    startActivity(openURL)
+}
+
+/** VERIFICA SE A PERMISSÃO FOI CONCEDIDA: https://youtu.be/grYUKZDTzVA */
 fun Fragment.hasPermission(permission: String): Boolean {
     val permissionCheckResult = ContextCompat.checkSelfPermission(requireContext(), permission)
     return PackageManager.PERMISSION_GRANTED == permissionCheckResult
 }
 
-// VERIFICA SE DEVE SOLICITAR AS PERMISSÕES NOVAMENTE
+/** VERIFICA SE DEVE SOLICITAR AS PERMISSÕES NOVAMENTE: https://youtu.be/grYUKZDTzVA */
 fun Fragment.shouldRequestPermission(permissions: Array<String>): Boolean {
     val grantedPermissions = mutableListOf<Boolean>()
     permissions.forEach { permission ->
@@ -46,16 +93,7 @@ fun Fragment.shouldRequestPermission(permissions: Array<String>): Boolean {
     return grantedPermissions.any { granted -> !granted }
 }
 
-/** EXIBE UMA MENSAGEM SIMPLES TEMPORARIZADA NA TELA DO CELULAR */
-fun Fragment.toast(msg: String) = Toast.makeText(requireContext(), msg, Toast.LENGTH_SHORT).show()
-
-/** NAVEGA PARA O DESTINO INDICADO ATRAVES DO ID DO NAGIVATION GRAPH */
-fun Fragment.navTo(@IdRes dest: Int) = findNavController().navigate(dest)
-fun Fragment.navTo(directions: NavDirections) = findNavController().navigate(directions)
-fun Fragment.navTo(@IdRes dest: Int, args: Bundle) = findNavController().navigate(dest, args)
-fun Fragment.navBack() = findNavController().navigateUp()
-
-/** ESCONDER O TECLADO */
+/** ESCONDE O TECLADO: https://youtu.be/OzK1fJi9FiQ  */
 fun Fragment.hideKeyboard(view: View? = activity?.window?.decorView?.rootView) {
     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
         view?.hideKeyboard(view)
@@ -64,10 +102,7 @@ fun Fragment.hideKeyboard(view: View? = activity?.window?.decorView?.rootView) {
     }
 }
 
-fun Fragment.inputMethodManager() =
-    context?.getSystemService(Context.INPUT_METHOD_SERVICE) as? InputMethodManager
-
-/** EXIBIR O TECLADO */
+/** EXIBE O TECLADO: https://youtu.be/OzK1fJi9FiQ  */
 fun Fragment.showKeyboard(view: View? = activity?.currentFocus) {
     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
         view?.showKeyboard(view)
@@ -81,13 +116,14 @@ fun Fragment.showKeyboard(view: View? = activity?.currentFocus) {
     }
 }
 
-/** VIBRAR CELULAR */
-@SuppressLint("ObsoleteSdkInt")
+fun Fragment.inputMethodManager() =
+    context?.getSystemService(Context.INPUT_METHOD_SERVICE) as? InputMethodManager
+
+
 @Suppress("DEPRECATION")
-fun Fragment.vibrante(duration: Long = 100) {
-
+        /** FAZ COM QUE O APARELHO VIBRE PELO TEMPO DEFINIDO: https://youtu.be/ogxgiaCq_24  */
+fun Fragment.vibrate(duration: Long = 100) {
     val vibrator = requireContext().getSystemService(Context.VIBRATOR_SERVICE) as? Vibrator
-
     when {
         Build.VERSION.SDK_INT >= Build.VERSION_CODES.S -> {
             val vm =
@@ -111,18 +147,18 @@ fun Fragment.vibrante(duration: Long = 100) {
     }
 }
 
-
-//VERIFICAR SE TEM INTERNET
+/** VERIFICA SE TEM REDE E SE TEM ACESSO A INTERNET: https://youtu.be/DpyxLwibE0M  */
 fun Fragment.hasInternet(): Boolean {
     val connMgr =
         requireContext().getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
     return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
         val capabilities = connMgr.getNetworkCapabilities(connMgr.activeNetwork)
         capabilities != null &&
-                //VERIFICAR SE TEM REDE WIFI ETC.
+                // verifica se você tem rede ex: WIFI etc.
                 capabilities.hasCapability(NET_CAPABILITY_INTERNET) &&
-                //VERIFICAR SE TEM CONNEXÃO POIS EM ALGUNS CASOS TEM O WIFI LIGADO MAS
-                //NÃO TEM NET, COMO EM UM AEROPORTO
+                // e realmetne consegue fazer requisições, pois em alguns casos
+                // ex. aeroporto vc esta conectado, porem ainda não foi liberado
+                // e por isso não tem rede
                 capabilities.hasCapability(NET_CAPABILITY_VALIDATED)
     } else {
         @Suppress("DEPRECATION")
@@ -130,7 +166,6 @@ fun Fragment.hasInternet(): Boolean {
     }
 }
 
-//ATIVAR BIOMETRIA API>=23
 /** EXIBE UM LEITOR DE BIOMETRIA: XXXXXXX */
 fun Fragment.promptBiometricChecker(
     title: String,
@@ -170,24 +205,14 @@ fun Fragment.promptBiometricChecker(
     prompt.authenticate(promptInfo)
 }
 
-/** EXIBIR UM ALERTA DE MENSAGENS FULLSCREEN PERSONALIZADO */
-fun Fragment.showFullscreenAlertDialog(
-    title: String,
-    message: String,
-    positiveButtonLabel: String = getString(android.R.string.ok),
-    positiveButtonClickListener: () -> Unit = {},
-    cancelButtonLabel: String? = null,
-    negativeButtonClickListener: () -> Unit = {},
-    dismissAction: () -> Unit = {},
-) = FullscreenAlertDialog(
-    title = title,
-    message = message,
-    positiveLabel = positiveButtonLabel,
-    positiveAction = positiveButtonClickListener,
-    cancelLabel = cancelButtonLabel,
-    cancelAction = negativeButtonClickListener,
-    dismissAction = dismissAction,
-).also { it.show(parentFragmentManager, it.javaClass.simpleName) }
+/** NAVEGAR PARA PLAYSTORE DE MANEIRA FACIL */
+fun Fragment.openPlayStore() {
+    Intent(Intent.ACTION_VIEW).apply {
+        data =
+            Uri.parse("https://play.google.com/store/apps/details?id=${BuildConfig.APPLICATION_ID}")
+        setPackage("com.android.vending")
+    }.let { startActivity(it) }
+}
 
 /** EXIBIR MATERIAL ALERT DIALOG DE ACORDO COM SUAS NECESSIDADES */
 fun Fragment.showDefaultMaterialAlertDialog(
@@ -275,6 +300,27 @@ fun Fragment.createFullCustomAlertDialog(
     return dialog
 }
 
+
+/** EXIBIR UM ALERTA DE MENSAGENS FULLSCREEN PERSONALIZADO */
+fun Fragment.showFullscreenAlertDialog(
+    title: String,
+    message: String,
+    positiveButtonLabel: String = getString(android.R.string.ok),
+    positiveButtonClickListener: () -> Unit = {},
+    cancelButtonLabel: String? = null,
+    negativeButtonClickListener: () -> Unit = {},
+    dismissAction: () -> Unit = {},
+) = FullscreenAlertDialog(
+    title = title,
+    message = message,
+    positiveLabel = positiveButtonLabel,
+    positiveAction = positiveButtonClickListener,
+    cancelLabel = cancelButtonLabel,
+    cancelAction = negativeButtonClickListener,
+    dismissAction = dismissAction,
+).also { it.show(parentFragmentManager, it.javaClass.simpleName) }
+
+
 /** REALIZAR UMA TAREFA EM LOOP (EX: CONSULTAR ALGUM RESULTADO DE UM SERVIDOR) */
 fun Fragment.polling(
     isOffline: () -> Boolean = { false },
@@ -324,6 +370,7 @@ fun Fragment.polling(
         }
     }
 }
+
 private fun handleStateChange(
     handle: () -> Unit, pollingScope: ClearableCoroutineScope
 ) {
@@ -332,3 +379,147 @@ private fun handleStateChange(
     return
 }
 
+fun Fragment.openPhoneDial(phoneNumber: String) {
+    Intent(Intent.ACTION_DIAL).apply {
+        data = Uri.parse("tel:$phoneNumber")
+    }.let { startActivity(it) }
+}
+
+fun Fragment.setDefaultTheme(@StyleRes styleId: Int) {
+    requireActivity().setTheme(styleId)
+}
+
+fun Fragment.showTransparentStatusBar(isTransparent: Boolean) {
+    val translucentColor = 0x04000000
+    val window = requireActivity().window
+    if (isTransparent) window.addFlags(translucentColor) else window.clearFlags(translucentColor)
+}
+
+fun Fragment.setSystemStatusBarColorOverColorResource(@ColorRes id: Int) {
+    requireActivity().window.statusBarColor = requireActivity().getColor(id)
+}
+
+fun Fragment.setSystemNavigationBarColorOverColorResource(@ColorRes id: Int) {
+    requireActivity().window.navigationBarColor = requireActivity().getColor(id)
+}
+
+fun Fragment.setSystemStatusBarColorOverAttrResource(@AttrRes id: Int) {
+    requireActivity().window.statusBarColor = getColor(id)
+}
+
+fun Fragment.setSystemNavigationBarColorOverAttrResource(@AttrRes id: Int) {
+    requireActivity().window.navigationBarColor = getColor(id)
+}
+
+//fun Fragment.getColor(@AttrRes id: Int): Int {
+//    val typedValue = TypedValue()
+//    requireContext().theme.resolveAttribute(id, typedValue, true)
+//    return typedValue.data
+//}
+
+fun Fragment.setTranslucentWindow(translucent: Boolean) {
+    if (translucent) {
+        requireActivity().window.setFlags(
+            WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,
+            WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS
+        )
+    } else {
+        requireActivity().window.setFlags(
+            WindowManager.LayoutParams.FLAG_LAYOUT_IN_SCREEN,
+            WindowManager.LayoutParams.FLAG_LAYOUT_IN_SCREEN
+        )
+    }
+}
+
+fun Fragment.hideTopActionBar() = activity?.let { (it as AppCompatActivity).hideActionBar() }
+fun Fragment.showTopActionBar() = activity?.let { (it as AppCompatActivity).showActionBar() }
+fun Fragment.setActionBarTitle(@StringRes title: Int) =
+    activity?.let { (it as AppCompatActivity).setActionBarTitle(title) }
+
+fun Fragment.setActionBarIcon(@DrawableRes icon: Int) =
+    activity?.let { (it as AppCompatActivity).setActionBarIcon(icon) }
+
+fun Fragment.setToolBarIcon(@DrawableRes icon: Int) =
+    activity?.let { (it as AppCompatActivity).setToolbarNavigationIcon(icon) }
+
+fun Fragment.setToolBarTitle(title: String) =
+    activity?.let { (it as AppCompatActivity).setToolbarNavigationTitle(title) }
+
+fun openUrl(activity: Activity, url: String) {
+    activity.startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(url)))
+}
+
+fun Fragment.openAppSettings() {
+    val intent = Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS).apply {
+        data = Uri.fromParts("package", BuildConfig.APPLICATION_ID, null)
+    }
+    if (canHandleIntent(requireContext(), intent)) {
+        requireContext().startActivity(intent)
+    } else {
+        requireContext().startActivity(Intent(Settings.ACTION_SETTINGS))
+    }
+}
+
+// ==================================================
+// - Query Packages Android 12    -------------------
+// ==================================================
+/** PRECISA ESPECIFICAR A PERMISSION NO MANIFEST A PARTIR DO ANDROID 12 */
+fun canHandleIntent(context: Context, intent: Intent): Boolean {
+    return context.packageManager.queryIntentActivities(intent, PackageManager.MATCH_ALL)
+        .isNotEmpty()
+}
+
+// VEJA VIDEO: NAVEGAçÃO MULTIPLA: https://youtu.be/CwwU1D91elg
+fun <T : AppCompatActivity> Fragment.navigateToNavGraph(
+    entryPoint: Class<T>,
+    @IdRes navGraphStartDestination: Int? = null,
+    overridePendingTransition: Boolean = false
+) {
+    requireActivity().navigateToNavGraph(
+        entryPoint,
+        navGraphStartDestination,
+        overridePendingTransition
+    )
+}
+
+
+fun Fragment.startFurtaCorAnim(view: TextView, fromColor: Int, toColor: Int) {
+    val furtaCorAnim: ValueAnimator = ObjectAnimator.ofInt(
+        view,
+        "textColor",
+        fromColor,
+        toColor
+    )
+    furtaCorAnim.duration = 1000
+    furtaCorAnim.setEvaluator(ArgbEvaluator())
+    furtaCorAnim.repeatCount = ValueAnimator.INFINITE
+    furtaCorAnim.repeatMode = ValueAnimator.REVERSE
+    furtaCorAnim.start()
+}
+
+fun Fragment.getDrawable(@DrawableRes id: Int): Drawable? {
+    return ContextCompat.getDrawable(requireContext(), id)
+}
+
+fun Fragment.getColor(@ColorRes id: Int): Int {
+    return requireActivity().resources.getColor(id, null)
+}
+
+fun Fragment.showDialog(
+    title: String? = null,
+    message: String,
+    positiveButtonLabel: String,
+    positiveButtonClickListener: () -> Unit = {},
+    negativeButtonLabel: String? = null,
+    negativeButtonClickListener: () -> Unit = {},
+    cancelable: Boolean = true,
+    cancelListener: () -> Unit = {}
+) = MaterialAlertDialogBuilder(requireContext())
+    .setTitle(title)
+    .setMessage(message)
+    .setPositiveButton(positiveButtonLabel) { _, _ -> positiveButtonClickListener() }
+    .setNegativeButton(negativeButtonLabel) { _, _ -> negativeButtonClickListener() }
+    .setCancelable(cancelable)
+    .setOnCancelListener { cancelListener() }
+    .create()
+    .also { it.show() }

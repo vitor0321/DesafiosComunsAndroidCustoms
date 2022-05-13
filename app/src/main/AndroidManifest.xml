@@ -33,6 +33,14 @@
             </intent-filter>
         </activity>
         <activity android:name="com.example.desafioscomunsandroidcustoms.presentation.ui.activity.bloquear_captura_tela.BlockScreenShotsActivity" />
+
+        <provider
+            android:name="com.example.desafioscomunsandroidcustoms.presentation.ui.send_data_appA_appB.content_provider.AppInfoProvider"
+            android:authorities="${applicationId}.provider"
+            android:enabled="true"
+            android:protectionLevel="signature"
+            android:readPermission="${applicationId}.permission.ACCOUNT_STATUS"
+            android:exported="true"/>
     </application>
 
 </manifest>

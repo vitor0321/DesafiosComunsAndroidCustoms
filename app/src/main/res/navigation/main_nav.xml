@@ -12,52 +12,122 @@
         tools:layout="@layout/fragment_main" >
         <action
             android:id="@+id/action_mainFragment_to_requestPermissionFragment"
+            app:enterAnim="@anim/nav_enter_anim"
+            app:exitAnim="@anim/nav_enter_anim"
+            app:popEnterAnim="@anim/nav_pop_enter_anim"
+            app:popExitAnim="@anim/nav_pop_exit_anim"
             app:destination="@id/requestPermissionFragment" />
         <action
             android:id="@+id/action_mainFragment_to_requestResultFragment"
+            app:enterAnim="@anim/nav_enter_anim"
+            app:exitAnim="@anim/nav_enter_anim"
+            app:popEnterAnim="@anim/nav_pop_enter_anim"
+            app:popExitAnim="@anim/nav_pop_exit_anim"
             app:destination="@id/requestResultFragment" />
         <action
             android:id="@+id/action_mainFragment_to_tecladoFragment"
+            app:enterAnim="@anim/nav_enter_anim"
+            app:exitAnim="@anim/nav_enter_anim"
+            app:popEnterAnim="@anim/nav_pop_enter_anim"
+            app:popExitAnim="@anim/nav_pop_exit_anim"
             app:destination="@id/tecladoFragment" />
         <action
             android:id="@+id/action_mainFragment_to_vibrarFragment"
+            app:enterAnim="@anim/nav_enter_anim"
+            app:exitAnim="@anim/nav_enter_anim"
+            app:popEnterAnim="@anim/nav_pop_enter_anim"
+            app:popExitAnim="@anim/nav_pop_exit_anim"
             app:destination="@id/vibrarFragment" />
         <action
             android:id="@+id/action_mainFragment_to_hasInternetFragment"
+            app:enterAnim="@anim/nav_enter_anim"
+            app:exitAnim="@anim/nav_enter_anim"
+            app:popEnterAnim="@anim/nav_pop_enter_anim"
+            app:popExitAnim="@anim/nav_pop_exit_anim"
             app:destination="@id/hasInternetFragment" />
         <action
             android:id="@+id/action_mainFragment_to_darkWebViewFragment"
+            app:enterAnim="@anim/nav_enter_anim"
+            app:exitAnim="@anim/nav_enter_anim"
+            app:popEnterAnim="@anim/nav_pop_enter_anim"
+            app:popExitAnim="@anim/nav_pop_exit_anim"
             app:destination="@id/darkWebViewFragment" />
         <action
             android:id="@+id/action_mainFragment_to_checkEditTextFragment"
+            app:enterAnim="@anim/nav_enter_anim"
+            app:exitAnim="@anim/nav_enter_anim"
+            app:popEnterAnim="@anim/nav_pop_enter_anim"
+            app:popExitAnim="@anim/nav_pop_exit_anim"
             app:destination="@id/checkEditTextFragment" />
         <action
             android:id="@+id/action_mainFragment_to_checkIfEmulatorFragment"
+            app:enterAnim="@anim/nav_enter_anim"
+            app:exitAnim="@anim/nav_enter_anim"
+            app:popEnterAnim="@anim/nav_pop_enter_anim"
+            app:popExitAnim="@anim/nav_pop_exit_anim"
             app:destination="@id/checkIfEmulatorFragment" />
         <action
             android:id="@+id/action_mainFragment_to_backPressedFragment"
+            app:enterAnim="@anim/nav_enter_anim"
+            app:exitAnim="@anim/nav_enter_anim"
+            app:popEnterAnim="@anim/nav_pop_enter_anim"
+            app:popExitAnim="@anim/nav_pop_exit_anim"
             app:destination="@id/backPressedFragment" />
         <action
             android:id="@+id/action_mainFragment_to_biometryFragment"
+            app:enterAnim="@anim/nav_enter_anim"
+            app:exitAnim="@anim/nav_enter_anim"
+            app:popEnterAnim="@anim/nav_pop_enter_anim"
+            app:popExitAnim="@anim/nav_pop_exit_anim"
             app:destination="@id/biometryFragment" />
         <action
             android:id="@+id/action_mainFragment_to_fullscreenDialogFragment"
+            app:enterAnim="@anim/nav_enter_anim"
+            app:exitAnim="@anim/nav_enter_anim"
+            app:popEnterAnim="@anim/nav_pop_enter_anim"
+            app:popExitAnim="@anim/nav_pop_exit_anim"
             app:destination="@id/fullscreenDialogFragment" />
         <action
             android:id="@+id/action_mainFragment_to_customDialogFragment"
+            app:enterAnim="@anim/nav_enter_anim"
+            app:exitAnim="@anim/nav_enter_anim"
+            app:popEnterAnim="@anim/nav_pop_enter_anim"
+            app:popExitAnim="@anim/nav_pop_exit_anim"
             app:destination="@id/customDialogFragment" />
         <action
             android:id="@+id/action_mainFragment_to_pollingApiFragment"
+            app:enterAnim="@anim/nav_enter_anim"
+            app:exitAnim="@anim/nav_enter_anim"
+            app:popEnterAnim="@anim/nav_pop_enter_anim"
+            app:popExitAnim="@anim/nav_pop_exit_anim"
             app:destination="@id/pollingApiFragment" />
         <action
             android:id="@+id/action_mainFragment_to_bottomSheetDialogFragment"
+            app:enterAnim="@anim/nav_enter_anim"
+            app:exitAnim="@anim/nav_enter_anim"
+            app:popEnterAnim="@anim/nav_pop_enter_anim"
+            app:popExitAnim="@anim/nav_pop_exit_anim"
             app:destination="@id/bottomSheetDialogFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_myViewFragment"
+            app:destination="@id/myViewFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_itemDecoratorFragment"
+            app:destination="@id/itemDecoratorFragment" />
     </fragment>
     <fragment
         android:id="@+id/requestPermissionFragment"
         android:name="com.example.desafioscomunsandroidcustoms.presentation.ui.fragment.request_permissions.RequestPermissionFragment"
         android:label="fragment_request_permission"
-        tools:layout="@layout/fragment_request_permission" />
+        tools:layout="@layout/fragment_request_permission" >
+        <action
+            android:id="@+id/action_requestPermissionFragment_to_mainFragment"
+            app:enterAnim="@anim/nav_enter_anim"
+            app:exitAnim="@anim/nav_enter_anim"
+            app:popEnterAnim="@anim/nav_pop_enter_anim"
+            app:popExitAnim="@anim/nav_pop_exit_anim"
+            app:destination="@id/mainFragment" />
+    </fragment>
     <fragment
         android:id="@+id/resultFragment"
         android:name="com.example.desafioscomunsandroidcustoms.presentation.ui.fragment.get_image.ResultFragment"
@@ -70,66 +140,191 @@
         tools:layout="@layout/fragment_request_result" >
         <action
             android:id="@+id/action_requestResultFragment_to_resultFragment"
+            app:enterAnim="@anim/nav_enter_anim"
+            app:exitAnim="@anim/nav_enter_anim"
+            app:popEnterAnim="@anim/nav_pop_enter_anim"
+            app:popExitAnim="@anim/nav_pop_exit_anim"
             app:destination="@id/resultFragment" />
+        <action
+            android:id="@+id/action_requestResultFragment_to_mainFragment"
+            app:enterAnim="@anim/nav_enter_anim"
+            app:exitAnim="@anim/nav_enter_anim"
+            app:popEnterAnim="@anim/nav_pop_enter_anim"
+            app:popExitAnim="@anim/nav_pop_exit_anim"
+            app:destination="@id/mainFragment" />
     </fragment>
     <fragment
         android:id="@+id/tecladoFragment"
         android:name="com.example.desafioscomunsandroidcustoms.presentation.ui.fragment.exibir_esconder_teclado.TecladoFragment"
         android:label="fragment_teclado"
-        tools:layout="@layout/fragment_teclado" />
+        tools:layout="@layout/fragment_teclado" >
+        <action
+            android:id="@+id/action_tecladoFragment_to_mainFragment"
+            app:enterAnim="@anim/nav_enter_anim"
+            app:exitAnim="@anim/nav_enter_anim"
+            app:popEnterAnim="@anim/nav_pop_enter_anim"
+            app:popExitAnim="@anim/nav_pop_exit_anim"
+            app:destination="@id/mainFragment" />
+    </fragment>
     <fragment
         android:id="@+id/vibrarFragment"
         android:name="com.example.desafioscomunsandroidcustoms.presentation.ui.fragment.vibrar_celular.VibrarFragment"
         android:label="fragment_vibrar"
-        tools:layout="@layout/fragment_vibrar" />
+        tools:layout="@layout/fragment_vibrar" >
+        <action
+            android:id="@+id/action_vibrarFragment_to_mainFragment"
+            app:enterAnim="@anim/nav_enter_anim"
+            app:exitAnim="@anim/nav_enter_anim"
+            app:popEnterAnim="@anim/nav_pop_enter_anim"
+            app:popExitAnim="@anim/nav_pop_exit_anim"
+            app:destination="@id/mainFragment" />
+    </fragment>
     <fragment
         android:id="@+id/hasInternetFragment"
         android:name="com.example.desafioscomunsandroidcustoms.presentation.ui.fragment.check_internet.HasInternetFragment"
         android:label="fragment_has_internet"
-        tools:layout="@layout/fragment_has_internet" />
+        tools:layout="@layout/fragment_has_internet" >
+        <action
+            android:id="@+id/action_hasInternetFragment_to_mainFragment"
+            app:enterAnim="@anim/nav_enter_anim"
+            app:exitAnim="@anim/nav_enter_anim"
+            app:popEnterAnim="@anim/nav_pop_enter_anim"
+            app:popExitAnim="@anim/nav_pop_exit_anim"
+            app:destination="@id/mainFragment" />
+    </fragment>
     <fragment
         android:id="@+id/darkWebViewFragment"
         android:name="com.example.desafioscomunsandroidcustoms.presentation.ui.fragment.dark_web_view.DarkWebViewFragment"
         android:label="fragment_dark_web_view"
-        tools:layout="@layout/fragment_dark_web_view" />
+        tools:layout="@layout/fragment_dark_web_view" >
+        <action
+            android:id="@+id/action_darkWebViewFragment_to_mainFragment"
+            app:enterAnim="@anim/nav_enter_anim"
+            app:exitAnim="@anim/nav_enter_anim"
+            app:popEnterAnim="@anim/nav_pop_enter_anim"
+            app:popExitAnim="@anim/nav_pop_exit_anim"
+            app:destination="@id/mainFragment" />
+    </fragment>
     <fragment
         android:id="@+id/checkEditTextFragment"
         android:name="com.example.desafioscomunsandroidcustoms.presentation.ui.fragment.check_edit_text.CheckEditTextFragment"
         android:label="fragment_check_edit_text"
-        tools:layout="@layout/fragment_check_edit_text" />
+        tools:layout="@layout/fragment_check_edit_text" >
+        <action
+            android:id="@+id/action_checkEditTextFragment_to_mainFragment"
+            app:enterAnim="@anim/nav_enter_anim"
+            app:exitAnim="@anim/nav_enter_anim"
+            app:popEnterAnim="@anim/nav_pop_enter_anim"
+            app:popExitAnim="@anim/nav_pop_exit_anim"
+            app:destination="@id/mainFragment" />
+    </fragment>
     <fragment
         android:id="@+id/checkIfEmulatorFragment"
         android:name="com.example.desafioscomunsandroidcustoms.presentation.ui.fragment.check_if_emulador.CheckIfEmulatorFragment"
         android:label="fragment_check_if_emulator"
-        tools:layout="@layout/fragment_check_if_emulator" />
+        tools:layout="@layout/fragment_check_if_emulator" >
+        <action
+            android:id="@+id/action_checkIfEmulatorFragment_to_mainFragment"
+            app:enterAnim="@anim/nav_enter_anim"
+            app:exitAnim="@anim/nav_enter_anim"
+            app:popEnterAnim="@anim/nav_pop_enter_anim"
+            app:popExitAnim="@anim/nav_pop_exit_anim"
+            app:destination="@id/mainFragment" />
+    </fragment>
     <fragment
         android:id="@+id/backPressedFragment"
         android:name="com.example.desafioscomunsandroidcustoms.presentation.ui.fragment.pressionar_botao_voltar.BackPressedFragment"
         android:label="fragment_back_pressed"
-        tools:layout="@layout/fragment_back_pressed" />
+        tools:layout="@layout/fragment_back_pressed" >
+        <action
+            android:id="@+id/action_backPressedFragment_to_mainFragment"
+            app:enterAnim="@anim/nav_enter_anim"
+            app:exitAnim="@anim/nav_enter_anim"
+            app:popEnterAnim="@anim/nav_pop_enter_anim"
+            app:popExitAnim="@anim/nav_pop_exit_anim"
+            app:destination="@id/mainFragment" />
+    </fragment>
     <fragment
         android:id="@+id/biometryFragment"
         android:name="com.example.desafioscomunsandroidcustoms.presentation.ui.fragment.biometric.BiometryFragment"
         android:label="fragment_biometry"
-        tools:layout="@layout/fragment_biometry" />
+        tools:layout="@layout/fragment_biometry" >
+        <action
+            android:id="@+id/action_biometryFragment_to_mainFragment"
+            app:enterAnim="@anim/nav_enter_anim"
+            app:exitAnim="@anim/nav_enter_anim"
+            app:popEnterAnim="@anim/nav_pop_enter_anim"
+            app:popExitAnim="@anim/nav_pop_exit_anim"
+            app:destination="@id/mainFragment" />
+    </fragment>
     <fragment
         android:id="@+id/fullscreenDialogFragment"
         android:name="com.example.desafioscomunsandroidcustoms.presentation.ui.fragment.full_screen.FullscreenDialogFragment"
         android:label="fragment_fullscreen_dialog"
-        tools:layout="@layout/fragment_fullscreen_dialog" />
+        tools:layout="@layout/fragment_fullscreen_dialog" >
+        <action
+            android:id="@+id/action_fullscreenDialogFragment_to_mainFragment"
+            app:enterAnim="@anim/nav_enter_anim"
+            app:exitAnim="@anim/nav_enter_anim"
+            app:popEnterAnim="@anim/nav_pop_enter_anim"
+            app:popExitAnim="@anim/nav_pop_exit_anim"
+            app:destination="@id/mainFragment" />
+    </fragment>
     <fragment
         android:id="@+id/customDialogFragment"
         android:name="com.example.desafioscomunsandroidcustoms.presentation.ui.fragment.dialog_custumizados.CustomDialogFragment"
         android:label="fragment_custom_dialog"
-        tools:layout="@layout/fragment_custom_dialog" />
+        tools:layout="@layout/fragment_custom_dialog" >
+        <action
+            android:id="@+id/action_customDialogFragment_to_mainFragment"
+            app:enterAnim="@anim/nav_enter_anim"
+            app:exitAnim="@anim/nav_enter_anim"
+            app:popEnterAnim="@anim/nav_pop_enter_anim"
+            app:popExitAnim="@anim/nav_pop_exit_anim"
+            app:destination="@id/mainFragment" />
+    </fragment>
     <fragment
         android:id="@+id/pollingApiFragment"
         android:name="com.example.desafioscomunsandroidcustoms.presentation.ui.fragment.requisicao_api.PollingApiFragment"
         android:label="PollingApiFragment"
-        tools:layout="@layout/fragment_polling_api" />
+        tools:layout="@layout/fragment_polling_api" >
+        <action
+            android:id="@+id/action_pollingApiFragment_to_mainFragment"
+            app:enterAnim="@anim/nav_enter_anim"
+            app:exitAnim="@anim/nav_enter_anim"
+            app:popEnterAnim="@anim/nav_pop_enter_anim"
+            app:popExitAnim="@anim/nav_pop_exit_anim"
+            app:destination="@id/mainFragment" />
+    </fragment>
     <fragment
         android:id="@+id/bottomSheetDialogFragment"
         android:name="com.example.desafioscomunsandroidcustoms.presentation.ui.fragment.bottom_sheet.BottomSheetDialogFragment"
         android:label="fragment_bottom_sheet_dialog"
-        tools:layout="@layout/fragment_bottom_sheet_dialog" />
+        tools:layout="@layout/fragment_bottom_sheet_dialog" >
+        <action
+            android:id="@+id/action_bottomSheetDialogFragment_to_mainFragment"
+            app:enterAnim="@anim/nav_enter_anim"
+            app:exitAnim="@anim/nav_enter_anim"
+            app:popEnterAnim="@anim/nav_pop_enter_anim"
+            app:popExitAnim="@anim/nav_pop_exit_anim"
+            app:destination="@id/mainFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/myViewFragment"
+        android:name="com.example.desafioscomunsandroidcustoms.presentation.ui.fragment.mvp.concrete_view.MyViewFragment"
+        android:label="fragment_my_view"
+        tools:layout="@layout/fragment_my_view" >
+        <action
+            android:id="@+id/action_myViewFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/itemDecoratorFragment"
+        android:name="com.example.desafioscomunsandroidcustoms.presentation.ui.fragment.itens_decorativos.ItemDecoratorFragment"
+        android:label="fragment_item_decorator"
+        tools:layout="@layout/fragment_item_decorator" >
+        <action
+            android:id="@+id/action_itemDecoratorFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
+    </fragment>
 </navigation>
