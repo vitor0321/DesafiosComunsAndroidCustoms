@@ -54,6 +54,10 @@ class MainFragment : Fragment(R.layout.fragment_main) {
             mvpButton.setOnClickListener { navTo(R.id.action_mainFragment_to_myViewFragment) }
 
             recyclerviewCustumizadoButton.setOnClickListener { navTo(R.id.action_mainFragment_to_itemDecoratorFragment) }
+
+            showTecladoEditButton.setOnClickListener { navTo(R.id.action_mainFragment_to_showEditWithTecladoFragment) }
+
+            filterList.setOnClickListener { navTo(R.id.action_mainFragment_to_searchViewFragment) }
         }
     }
 }

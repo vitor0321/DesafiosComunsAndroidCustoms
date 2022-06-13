@@ -21,4 +21,35 @@
     <string name="feedback_rating_subtitle">\"Façiço não. Vote logo!\"</string>
     <string name="feedback_rating_btn_send">\"Foi mal vei! Vô votar agora mermo!\"</string>
     <string name="feedback_rating_btn_later">Mais tarde</string>
+
+    <string name="apply_filter">Aplicar Filtro</string>
+    <string name="last_15_min">Útimos 15 Minutos</string>
+    <string name="last_hour">À Hora Atrás</string>
+    <string name="last_4_hours">Últimas 4 Horas</string>
+    <string name="last_day">À Dia Atrás</string>
+
+    <string-array name="filter_time">
+        <item>À 15 min.</item>
+        <item>À 1 Hora</item>
+        <item>À 4 Hora</item>
+        <item>À 1 Dia</item>
+    </string-array>
+
+    <string-array name="filter_status">
+        <item>inativo</item>
+        <item>ativo</item>
+        <item>desativado</item>
+    </string-array>
+
+    <string-array name="filter_priority">
+        <item>baixa</item>
+        <item>media</item>
+        <item>alta</item>
+    </string-array>
+
+
+    <string-array name="filter_type">
+        <item>O</item>
+        <item>B</item>
+    </string-array>
 </resources>

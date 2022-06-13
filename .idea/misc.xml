@@ -5,10 +5,21 @@
       <map>
         <entry key="app/src/main/res/drawable/dialog_alert_custom_rounded_border.xml" value="0.262037037037037" />
         <entry key="app/src/main/res/drawable/ic_back.xml" value="0.1425925925925926" />
+        <entry key="app/src/main/res/drawable/ic_close.xml" value="0.101" />
         <entry key="app/src/main/res/drawable/ic_contract.xml" value="0.1235" />
+        <entry key="app/src/main/res/drawable/ic_de.xml" value="0.101" />
+        <entry key="app/src/main/res/drawable/ic_filter.xml" value="0.101" />
+        <entry key="app/src/main/res/drawable/ic_language.xml" value="0.101" />
+        <entry key="app/src/main/res/drawable/ic_no_filter.xml" value="0.101" />
+        <entry key="app/src/main/res/drawable/ic_search.xml" value="0.101" />
         <entry key="app/src/main/res/drawable/item_decorator_divider.xml" value="0.1235" />
+        <entry key="app/src/main/res/drawable/white_divider.xml" value="0.101" />
         <entry key="app/src/main/res/layout/activity_block_screen_shots.xml" value="0.12537993920972645" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.12537993920972645" />
+        <entry key="app/src/main/res/layout/alarm_list_item.xml" value="0.12537993920972645" />
+        <entry key="app/src/main/res/layout/alarm_list_item_chip.xml" value="0.12537993920972645" />
+        <entry key="app/src/main/res/layout/alarm_list_item_filter.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/alarm_list_item_filter_layout.xml" value="0.12537993920972645" />
         <entry key="app/src/main/res/layout/custom_menu_item.xml" value="0.2" />
         <entry key="app/src/main/res/layout/dialog_alert_custom_success.xml" value="0.12537993920972645" />
         <entry key="app/src/main/res/layout/dialog_alert_custom_success_button.xml" value="0.12537993920972645" />
@@ -30,12 +41,16 @@
         <entry key="app/src/main/res/layout/fragment_request_permission.xml" value="0.12537993920972645" />
         <entry key="app/src/main/res/layout/fragment_request_result.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_result.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/fragment_search_view.xml" value="0.12537993920972645" />
+        <entry key="app/src/main/res/layout/fragment_show_edit_with_teclado.xml" value="0.15" />
         <entry key="app/src/main/res/layout/fragment_teclado.xml" value="0.12537993920972645" />
         <entry key="app/src/main/res/layout/fragment_ticket_selection.xml" value="0.12537993920972645" />
         <entry key="app/src/main/res/layout/fragment_vibrar.xml" value="0.12537993920972645" />
         <entry key="app/src/main/res/layout/item_decorator_text_divider.xml" value="0.12537993920972645" />
         <entry key="app/src/main/res/layout/ticket_selection_element.xml" value="0.12537993920972645" />
         <entry key="app/src/main/res/menu/bottom_navigation_menu.xml" value="0.18796296296296297" />
+        <entry key="app/src/main/res/menu/langrage_settings.xml" value="0.14629629629629629" />
+        <entry key="app/src/main/res/menu/search_view.xml" value="0.14629629629629629" />
       </map>
     </option>
   </component>

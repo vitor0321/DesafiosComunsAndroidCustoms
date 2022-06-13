@@ -10,9 +10,10 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupWithNavController
 import com.example.desafioscomunsandroidcustoms.R
 import com.example.desafioscomunsandroidcustoms.databinding.ActivityMainBinding
+import com.example.desafioscomunsandroidcustoms.util.setVisible
 import com.example.desafioscomunsandroidcustoms.util.viewBinding
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), ActivityCallback {
 
     private val binding by viewBinding(ActivityMainBinding::inflate)
 
@@ -66,5 +67,27 @@ class MainActivity : AppCompatActivity() {
                 }
             }
         }
+    }
+
+    override fun showAppBarBackButton(show: Boolean) {
+        supportActionBar?.setHomeButtonEnabled(show)
+        supportActionBar?.setDisplayHomeAsUpEnabled(show)
+        supportActionBar?.setDisplayShowHomeEnabled(show)
+    }
+
+    override fun showAppBarTitle(show: Boolean) {
+        supportActionBar?.setDisplayShowTitleEnabled(show)
+    }
+
+    override fun showActionBar(show: Boolean) {
+        if (show) supportActionBar?.show() else supportActionBar?.hide()
+    }
+
+    override fun showProgressBar() {
+        binding.progress.setVisible(true)
+    }
+
+    override fun hideProgressBar() {
+        binding.progress.setVisible(false)
     }
 }

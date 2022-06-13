@@ -8,8 +8,26 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="red">#F11403</color>
+    <color name="orange">#FF5722</color>
+    <color name="yellow">#FFC107</color>
     <color name="gray">#A3A1A1</color>
     <color name="green">#26DF2D</color>
     <color name="splash_background_color">#00BCD4</color>
+    <color name="statusBarColorInverted">#00BCD4</color>
+    <color name="statusBarColor">#FF000000</color>
+    <color name="image_button">#FF018786</color>
+
+    # chip colors
+    <color name="chip_bg_color">#042745</color>
+    <color name="chip_bg_color_light">#7692AB</color>
+    <color name="chip_bg_color_dark">#018786</color>
+    <color name="chip_text_color_dark">#042745</color>
+
+    # app colors
+    <color name="text_color_button">@android:color/white</color>
+    <color name="alarm_item_divider">@color/image_button</color>
+    <color name="text_color_dark">#042745</color>
+    <color name="icon_color_dark">#042745</color>
+    <color name="light_grey">#bdbdbd</color>
 
 </resources>

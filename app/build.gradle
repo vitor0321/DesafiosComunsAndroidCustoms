@@ -85,6 +85,14 @@ dependencies {
     //Splashscreen lib android 12
     implementation "androidx.core:core-splashscreen:1.0.0-beta02"
 
+    //Retrofit
+    implementation "com.squareup.retrofit2:retrofit:2.9.0"
+    implementation "com.squareup.retrofit2:converter-gson:2.9.0"
+    implementation "com.squareup.retrofit2:converter-scalars:2.9.0"
+    implementation "com.squareup.retrofit2:retrofit-mock:2.9.0"
+    implementation "com.squareup.okhttp3:logging-interceptor:4.9.0"
+
+
     //ktor
     implementation 'io.ktor:ktor-client-android:1.6.3'
     implementation 'io.ktor:ktor-client-okhttp:1.6.3'
