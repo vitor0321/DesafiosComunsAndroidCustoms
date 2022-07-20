@@ -42,6 +42,7 @@ class MainFragment : Fragment(R.layout.fragment_main) {
             "Mostrar Teclado Edit" to R.id.action_mainFragment_to_showEditWithTecladoFragment,
             "Filtrar Lista" to R.id.action_mainFragment_to_searchViewFragment,
             "Plural de String" to R.id.action_mainFragment_to_pluralFragment,
+            "ScrollView Dinamico" to R.id.action_mainFragment_to_percentualScrollViewFragment,
             "Text Highlighter" to R.id.action_mainFragment_to_textHighlighterFragment,
             "Restoreable Action Dialog" to R.id.action_mainFragment_to_restoreableActionDialog
         )

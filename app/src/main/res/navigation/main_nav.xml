@@ -129,6 +129,9 @@
         <action
             android:id="@+id/action_mainFragment_to_pluralFragment"
             app:destination="@id/pluralFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_percentualScrollViewFragment"
+            app:destination="@id/percentualScrollViewFragment" />
     </fragment>
     <fragment
         android:id="@+id/requestPermissionFragment"
@@ -385,6 +388,15 @@
         tools:layout="@layout/fragment_plural" >
         <action
             android:id="@+id/action_pluralFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/percentualScrollViewFragment"
+        android:name="com.example.desafioscomunsandroidcustoms.presentation.ui.fragment.scrollview.PercentualScrollViewFragment"
+        android:label="fragment_percentual_scroll_view"
+        tools:layout="@layout/fragment_percentual_scroll_view" >
+        <action
+            android:id="@+id/action_percentualScrollViewFragment_to_mainFragment"
             app:destination="@id/mainFragment" />
     </fragment>
 </navigation>
