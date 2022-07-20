@@ -40,6 +40,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.NavDirections
 import androidx.navigation.fragment.findNavController
 import com.example.desafioscomunsandroidcustoms.BuildConfig
+import com.example.desafioscomunsandroidcustoms.R
 import com.example.desafioscomunsandroidcustoms.presentation.ui.fragment.full_screen.FullscreenAlertDialog
 import com.example.desafioscomunsandroidcustoms.presentation.ui.fragment.requisicao_api.ClearableCoroutineScope
 import com.example.desafioscomunsandroidcustoms.presentation.ui.fragment.requisicao_api.CoroutineContextProvider
@@ -377,6 +378,10 @@ private fun handleStateChange(
     handle()
     pollingScope.clearScope()
     return
+}
+
+fun Fragment.getColorResource(@ColorRes color: Int): Int {
+    return ContextCompat.getColor(requireContext(), color)
 }
 
 fun Fragment.openPhoneDial(phoneNumber: String) {

@@ -9,23 +9,26 @@
     <color name="gold">#FFD700</color>
     <color name="white">#FFFFFFFF</color>
     <color name="splash_background_color">#00BCD4</color>
+    <color name="gray">#777878</color>
+    <color name="green">#37EA3F</color>
+
 
     # app colors
     <color name="text_color_button">@android:color/white</color>
-    <color name="alarm_item_divider">@color/image_button</color>
-    <color name="image_button">#737373</color>
-    <color name="text_color_dark">#042745</color>
-    <color name="icon_color_dark">#042745</color>
+    <color name="alarm_item_divider">#FF032039</color>
+    <color name="image_button">@android:color/white</color>
+    <color name="text_color_dark">@android:color/white</color>
+    <color name="icon_color_dark">@android:color/white</color>
     <color name="light_grey">#bdbdbd</color>
 
     # chip colors
-    <color name="chip_bg_color">#042745</color>
+    <color name="chip_bg_color">#616161</color>
     <color name="chip_bg_color_light">#7692AB</color>
-    <color name="chip_bg_color_dark">#018786</color>
+    <color name="chip_bg_color_dark">#042745</color>
     <color name="chip_text_color_dark">#042745</color>
 
     # progress indicator
-    <color name="progressbar_indicator">#2D679A</color>
+    <color name="progressbar_indicator">@android:color/white</color>
 
     # back arrow
     <color name="navigation_back_arrow">#042745</color>
@@ -36,7 +39,7 @@
     <color name="yellow">#FFEC19</color>
 
     # statusbar colors
-    <color name="statusBarColorInverted">#F6412D</color>
+    <color name="statusBarColorInverted">#FFEC19</color>
     <color name="statusBarColor">#2D679A</color>
 
     # zoom in out infinity colors
@@ -51,8 +54,6 @@
     <color name="badge_destino">#2BA44D</color>
     <color name="text_color">#F5F5F5</color>
     <color name="card_lang_bg">#85C9F6</color>
-    <color name="gray">#777878</color>
-    <color name="green">#37EA3F</color>
 
     <color name="card_blue_bg">#C5E5FF</color>
     <color name="color_white">#FFFFFF</color>

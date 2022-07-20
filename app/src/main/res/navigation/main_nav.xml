@@ -120,6 +120,15 @@
         <action
             android:id="@+id/action_mainFragment_to_searchViewFragment"
             app:destination="@id/searchViewFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_textHighlighterFragment"
+            app:destination="@id/textHighlighterFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_restoreableActionDialog"
+            app:destination="@id/restoreableActionDialog" />
+        <action
+            android:id="@+id/action_mainFragment_to_pluralFragment"
+            app:destination="@id/pluralFragment" />
     </fragment>
     <fragment
         android:id="@+id/requestPermissionFragment"
@@ -349,6 +358,33 @@
         tools:layout="@layout/fragment_search_view" >
         <action
             android:id="@+id/action_searchViewFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/textHighlighterFragment"
+        android:name="com.example.desafioscomunsandroidcustoms.presentation.ui.fragment.text_highlighter.TextHighlighterFragment"
+        android:label="fragment_text_highlighter"
+        tools:layout="@layout/fragment_text_highlighter" >
+        <action
+            android:id="@+id/action_textHighlighterFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/restoreableActionDialog"
+        android:name="com.example.desafioscomunsandroidcustoms.presentation.ui.fragment.restaureable_action.RestoreableActionDialog"
+        android:label="RestoreableActionDialog"
+        tools:layout="@layout/fragment_restoreable_action">
+        <action
+            android:id="@+id/action_restoreableActionDialog_to_mainFragment"
+            app:destination="@id/mainFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/pluralFragment"
+        android:name="com.example.desafioscomunsandroidcustoms.presentation.ui.fragment.plural.PluralFragment"
+        android:label="fragment_plural"
+        tools:layout="@layout/fragment_plural" >
+        <action
+            android:id="@+id/action_pluralFragment_to_mainFragment"
             app:destination="@id/mainFragment" />
     </fragment>
 </navigation>

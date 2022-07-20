@@ -52,4 +52,10 @@
         <item>O</item>
         <item>B</item>
     </string-array>
+
+    <!--  PLURAL EM STRING -->
+    <plurals name="quantidade" translatable = "false">
+        <item quantity="one">%d carro encontrado.</item>
+        <item quantity="other">%d carros encontrados.</item>
+    </plurals>
 </resources>

@@ -53,26 +53,4 @@ class ShowEditWithTecladoFragment : BaseFragment<FragmentShowEditWithTecladoBind
 
     private fun login() = toast("logged In")
 
-
-    override fun showActionBarOptionMenu() = true
-
-    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
-        inflater.inflate(R.menu.langrage_settings, menu)
-        super.onCreateOptionsMenu(menu, inflater)
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when (item.itemId) {
-            R.id.action_fr -> {
-                //setLanguage(FRENCH)
-                return true
-            }
-            R.id.action_de -> {
-                //setLanguage(GERMAN)
-                return true
-            }
-            else -> Unit
-        }
-        return super.onOptionsItemSelected(item)
-    }
 }
