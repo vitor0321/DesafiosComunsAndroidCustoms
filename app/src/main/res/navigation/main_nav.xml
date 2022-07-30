@@ -132,6 +132,9 @@
         <action
             android:id="@+id/action_mainFragment_to_percentualScrollViewFragment"
             app:destination="@id/percentualScrollViewFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_linhaDoTempoFragment"
+            app:destination="@id/linhaDoTempoFragment" />
     </fragment>
     <fragment
         android:id="@+id/requestPermissionFragment"
@@ -397,6 +400,15 @@
         tools:layout="@layout/fragment_percentual_scroll_view" >
         <action
             android:id="@+id/action_percentualScrollViewFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/linhaDoTempoFragment"
+        android:name="com.example.desafioscomunsandroidcustoms.presentation.ui.fragment.linha_do_tempo.LinhaDoTempoFragment"
+        android:label="fragment_linha_do_tempo"
+        tools:layout="@layout/fragment_linha_do_tempo" >
+        <action
+            android:id="@+id/action_linhaDoTempoFragment_to_mainFragment"
             app:destination="@id/mainFragment" />
     </fragment>
 </navigation>
