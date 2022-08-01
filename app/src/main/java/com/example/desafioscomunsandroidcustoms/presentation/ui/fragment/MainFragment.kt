@@ -44,6 +44,8 @@ class MainFragment : Fragment(R.layout.fragment_main) {
             "Plural de String" to R.id.action_mainFragment_to_pluralFragment,
             "Linha do tempo" to R.id.action_mainFragment_to_linhaDoTempoFragment,
             "ScrollView Dinamico" to R.id.action_mainFragment_to_percentualScrollViewFragment,
+            "View Types Recycle View" to R.id.action_mainFragment_to_viewTypesFragment,
+            "Onboarding inicial" to R.id.action_mainFragment_to_onboardingFragment,
             "Text Highlighter" to R.id.action_mainFragment_to_textHighlighterFragment,
             "Restoreable Action Dialog" to R.id.action_mainFragment_to_restoreableActionDialog
         )

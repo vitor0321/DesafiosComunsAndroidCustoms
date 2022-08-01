@@ -135,6 +135,12 @@
         <action
             android:id="@+id/action_mainFragment_to_linhaDoTempoFragment"
             app:destination="@id/linhaDoTempoFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_viewTypesFragment"
+            app:destination="@id/viewTypesFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_onboardingFragment"
+            app:destination="@id/onboardingFragment" />
     </fragment>
     <fragment
         android:id="@+id/requestPermissionFragment"
@@ -409,6 +415,24 @@
         tools:layout="@layout/fragment_linha_do_tempo" >
         <action
             android:id="@+id/action_linhaDoTempoFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/viewTypesFragment"
+        android:name="com.example.desafioscomunsandroidcustoms.presentation.ui.fragment.view_types.ViewTypesFragment"
+        android:label="fragment_view_types"
+        tools:layout="@layout/fragment_view_types" >
+        <action
+            android:id="@+id/action_viewTypesFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/onboardingFragment"
+        android:name="com.example.desafioscomunsandroidcustoms.presentation.ui.fragment.onboarding.OnboardingFragment"
+        android:label="fragment_onboarding"
+        tools:layout="@layout/fragment_onboarding" >
+        <action
+            android:id="@+id/action_onboardingFragment_to_mainFragment"
             app:destination="@id/mainFragment" />
     </fragment>
 </navigation>
